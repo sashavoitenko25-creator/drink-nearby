@@ -66,6 +66,8 @@ function updateUserLocation(position) {
 
     drawUser();
 
+    loadMeetings();
+
     // Центрируем карту только один раз
     if (firstLocation && map) {
 

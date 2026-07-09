@@ -35,15 +35,12 @@ initMap();
 locateUser();
 
 
+loadMeetings();
+
+
 
 BottomSheet.init();
 
-
-setTimeout(() => {
-
-    testSheet();
-
-},1000);
 
 
 
