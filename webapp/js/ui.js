@@ -97,7 +97,7 @@ locationButton.addEventListener(
 ()=>{
 
 
-locateUser();
+centerOnUser();
 
 
 
