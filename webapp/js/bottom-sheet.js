@@ -1,15 +1,13 @@
 // =================================
-// BOTTOM SHEET
+// BOTTOM SHEET ENGINE
 // Drink Nearby
 // =================================
 
 const BottomSheet = {
 
-    element: null,
-
-    content: null,
-
     overlay: null,
+    element: null,
+    content: null,
 
     init() {
 
@@ -38,6 +36,18 @@ const BottomSheet = {
 
         this.overlay.classList.remove("active");
         this.element.classList.remove("active");
+
+    },
+
+    showMeeting(meeting){
+
+        openMeetingCard(meeting);
+
+    },
+
+    showRoute(meeting){
+
+        openRouteSheet(meeting);
 
     }
 

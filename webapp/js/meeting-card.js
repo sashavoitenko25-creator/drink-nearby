@@ -50,7 +50,7 @@ function openMeetingCard(meeting) {
 
             <div class="meeting-buttons">
 
-                <button onclick="routeToMeeting()">
+                <button onclick="BottomSheet.showRoute(currentMeeting)">
 
                     🚶 Построить маршрут
 
@@ -67,23 +67,5 @@ function openMeetingCard(meeting) {
         </div>
 
     `);
-
-}
-
-function routeToMeeting(){
-
-    if(!currentMeeting){
-
-        return;
-
-    }
-
-    buildRoute(
-
-        currentMeeting.lat,
-
-        currentMeeting.lon
-
-    );
 
 }
