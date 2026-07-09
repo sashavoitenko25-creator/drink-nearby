@@ -36,9 +36,14 @@ locateUser();
 
 
 
-UI.setStatus(
-"🟢 Онлайн"
-);
+BottomSheet.init();
+
+
+setTimeout(() => {
+
+    testSheet();
+
+},1000);
 
 
 

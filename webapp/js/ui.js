@@ -109,3 +109,38 @@ centerOnUser();
 
 
 });
+
+// =================================
+// TEST
+// =================================
+
+window.testSheet = function(){
+
+    BottomSheet.open(`
+
+        <h2>🍻 Drink Nearby</h2>
+
+        <p>Bottom Sheet работает.</p>
+
+        <p>Теперь сюда будут открываться анкеты пользователей.</p>
+
+        <button
+            onclick="BottomSheet.close()"
+            style="
+                margin-top:20px;
+                width:100%;
+                padding:14px;
+                border:none;
+                border-radius:12px;
+                font-size:16px;
+                cursor:pointer;
+            "
+        >
+
+            Закрыть
+
+        </button>
+
+    `);
+
+}
