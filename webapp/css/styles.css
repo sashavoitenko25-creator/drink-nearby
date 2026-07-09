@@ -91,7 +91,7 @@ body {
     border-radius:18px;
 
 
-    z-index:10;
+    z-index:1000;
 
 }
 
@@ -205,6 +205,8 @@ button {
 
 
     font-size:24px;
+	
+	z-index:1000;
 
 
 }
@@ -249,6 +251,8 @@ button {
     font-size:17px;
 
     font-weight:700;
+	
+	z-index:1000;
 
 
 }
