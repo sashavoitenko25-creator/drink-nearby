@@ -3,185 +3,41 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
+    <title>🍻 Drink Nearby</title>
 
-<title>
-🍻 Drink Nearby
-</title>
+    <!-- Telegram -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-<script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <!-- Leaflet -->
+    <link rel="stylesheet"
+          href="https://unpkg.com/leaflet/dist/leaflet.css">
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
-<!-- Leaflet -->
-
-<link
-rel="stylesheet"
-href="https://unpkg.com/leaflet/dist/leaflet.css"
-/>
-
-
-<script
-src="https://unpkg.com/leaflet/dist/leaflet.js">
-</script>
-
-
-<link rel="stylesheet" href="css/styles.css">
-<link rel="stylesheet" href="css/map.css">
-<link rel="stylesheet" href="css/bottom-sheet.css">
-<link rel="stylesheet" href="css/animations.css">
-
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/map.css">
+    <link rel="stylesheet" href="css/bottom-sheet.css">
+    <link rel="stylesheet" href="css/animations.css">
 
 </head>
 
-
 <body>
-
-
-<div id="app">
-
-
-<header class="top-bar">
-
-
-<div class="logo">
-
-🍻 Drink Nearby
-
-</div>
-
-
-<div id="connection-status">
-
-Подключение...
-
-</div>
-
-
-</header>
-
-
-
-<main id="content">
-
-    <div id="map"></div>
-
-</main>
-
-
-
-<button id="location-button">
-
-📍
-
-</button>
-
-
-
-<button id="create-button">
-
-🍻 Создать встречу
-
-</button>
-
-
-
-</div>
-
-
-
-<script src="js/config.js"></script>
-
-<script src="js/telegram.js"></script>
-
-<script src="js/api.js"></script>
-
-
-<script src="js/map.js"></script>
-
-<script src="js/location.js"></script>
-
-
-<script src="js/ui.js"></script>
-
-<script src="js/app.js"></script>
-
-
-</body>
-
-
-<!DOCTYPE html>
-<html lang="ru">
-
-<head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-
-
-<title>
-🍻 Drink Nearby
-</title>
-
-
-<script src="https://telegram.org/js/telegram-web-app.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-<!-- Leaflet -->
-
-<link
-rel="stylesheet"
-href="https://unpkg.com/leaflet/dist/leaflet.css"
-/>
-
-
-<script
-src="https://unpkg.com/leaflet/dist/leaflet.js">
-</script>
-
-
-<link rel="stylesheet" href="css/styles.css">
-<link rel="stylesheet" href="css/map.css">
-<link rel="stylesheet" href="css/animations.css">
-
-
-</head>
-
-
-<body>
-
-
-<div id="app">
-
-
-<header class="top-bar">
-
-
-<div class="logo">
-
-🍻 Drink Nearby
-
-</div>
-
-
-<div id="connection-status">
-
-Подключение...
 
 <div id="app">
 
     <!-- Карта -->
     <div id="map"></div>
 
-    <!-- Весь интерфейс -->
+    <!-- UI -->
     <div id="ui">
 
         <header class="top-bar">
@@ -208,33 +64,10 @@ src="https://unpkg.com/leaflet/dist/leaflet.js">
 
 </div>
 
-
-
-<script src="js/config.js"></script>
-
-<script src="js/telegram.js"></script>
-
-<script src="js/api.js"></script>
-
-
-<script src="js/map.js"></script>
-
-<script src="js/location.js"></script>
-
-
-<script src="js/ui.js"></script>
-
-<script src="js/bottom-sheet.js"></script>
-
-<script src="js/app.js"></script>
-
-
 <!-- Overlay -->
-
 <div id="sheet-overlay"></div>
 
 <!-- Bottom Sheet -->
-
 <div id="bottom-sheet">
 
     <div class="sheet-handle"></div>
@@ -243,9 +76,16 @@ src="https://unpkg.com/leaflet/dist/leaflet.js">
 
 </div>
 
+<!-- JS -->
+<script src="js/config.js"></script>
+<script src="js/telegram.js"></script>
+<script src="js/api.js"></script>
+<script src="js/map.js"></script>
+<script src="js/location.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/bottom-sheet.js"></script>
+<script src="js/app.js"></script>
 
 </body>
-
-
 
 </html>
