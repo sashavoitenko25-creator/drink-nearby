@@ -147,7 +147,7 @@ function createMeetingMarker(meeting,left){
 
         html:`
 
-        <div class="marker-card">
+        <div class="marker-card ${getMarkerClass(meeting)}">
 
             <div class="marker-icon">
 
@@ -155,9 +155,9 @@ function createMeetingMarker(meeting,left){
 
             </div>
 
-            <div class="marker-time">
+            <div class="marker-time ${left<=5?"marker-warning":""}">
 
-                ${left} мин
+                ${left<=5?"🔥 ":""}${left} мин
 
             </div>
 
@@ -217,3 +217,41 @@ function createMeetingMarker(meeting,left){
 
 // Обновляем встречи каждую минуту
 setInterval(loadMeetings,60000);
+
+function getMarkerClass(meeting){
+
+    const drink = meeting.meeting.drink.toLowerCase();
+
+    if(drink.includes("beer") || drink.includes("guinness")){
+
+        return "marker-beer";
+
+    }
+
+    if(drink.includes("wine") || drink.includes("aperol")){
+
+        return "marker-wine";
+
+    }
+
+    if(drink.includes("coffee")){
+
+        return "marker-coffee";
+
+    }
+
+    if(drink.includes("food")){
+
+        return "marker-food";
+
+    }
+
+    if(drink.includes("cocktail")){
+
+        return "marker-cocktail";
+
+    }
+
+    return "";
+
+}

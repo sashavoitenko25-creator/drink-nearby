@@ -1,10 +1,14 @@
+/* =================================
+   MEETING CARD
+================================= */
+
 .meeting-card{
 
     display:flex;
 
     flex-direction:column;
 
-    gap:20px;
+    gap:18px;
 
 }
 
@@ -12,9 +16,9 @@
 
     display:flex;
 
-    gap:16px;
-
     align-items:center;
+
+    gap:16px;
 
 }
 
@@ -30,19 +34,61 @@
 
 }
 
-.meeting-distance{
+.meeting-user{
 
-    color:#7f8c8d;
-
-    margin-top:6px;
+    flex:1;
 
 }
 
-.meeting-info{
+.meeting-user h2{
 
-    font-size:16px;
+    margin:0;
+
+    font-size:22px;
+
+}
+
+.meeting-distance{
+
+    margin-top:6px;
+
+    color:var(--text-secondary);
+
+}
+
+.meeting-drink{
+
+    font-size:18px;
+
+    font-weight:600;
+
+}
+
+.meeting-chip{
+
+    display:inline-flex;
+
+    align-self:flex-start;
+
+    background:var(--color-primary-light);
+
+    color:#2F80ED;
+
+    padding:10px 16px;
+
+    border-radius:999px;
+
+    font-weight:600;
+
+}
+
+.meeting-text{
+
+    font-size:15px;
 
     line-height:1.6;
+
+    color:var(--text);
 
 }
 
@@ -51,23 +97,5 @@
     display:flex;
 
     flex-direction:column;
-
-    gap:12px;
-
-}
-
-.meeting-buttons button{
-
-    height:52px;
-
-    border:none;
-
-    border-radius:14px;
-
-    cursor:pointer;
-
-    font-size:16px;
-
-    font-weight:600;
 
 }

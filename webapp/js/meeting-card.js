@@ -20,7 +20,7 @@ function openMeetingCard(meeting) {
                     src="${meeting.photo}"
                 >
 
-                <div>
+                <div class="meeting-user">
 
                     <h2>${meeting.name}, ${meeting.age}</h2>
 
@@ -34,29 +34,47 @@ function openMeetingCard(meeting) {
 
             </div>
 
-            <div class="meeting-info">
+            <div class="meeting-drink">
 
-                🍺 <b>${meeting.drink}</b>
+                ${meeting.drink}
 
-                <br><br>
+            </div>
 
-                ⏱️ Осталось <b>${meeting.duration}</b>
+            <div class="meeting-chip">
 
-                <br><br>
+                ⏱ Осталось ${meeting.duration}
 
-                💬 ${meeting.text}
+            </div>
+
+            <div class="meeting-text">
+
+                ${meeting.text}
 
             </div>
 
             <div class="meeting-buttons">
 
-                <button onclick="BottomSheet.showRoute(currentMeeting)">
+                <button
+                    class="btn btn-primary icon-button"
+                    onclick="BottomSheet.showRoute(currentMeeting)"
+                >
 
                     🚶 Построить маршрут
 
                 </button>
 
-                <button onclick="BottomSheet.close()">
+                <button
+                    class="btn btn-secondary icon-button"
+                >
+
+                    🍺 Предложить место встречи
+
+                </button>
+
+                <button
+                    class="btn btn-secondary"
+                    onclick="BottomSheet.close()"
+                >
 
                     Закрыть
 

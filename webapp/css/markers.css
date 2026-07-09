@@ -1,3 +1,7 @@
+/* =================================
+   MAP MARKERS
+================================= */
+
 .meeting-marker{
 
     background:none;
@@ -7,13 +11,15 @@
 
 .marker-card{
 
-    width:60px;
+    min-width:68px;
 
-    height:60px;
+    height:62px;
 
-    background:white;
+    background:var(--surface);
 
     border-radius:18px;
+
+    box-shadow:var(--shadow);
 
     display:flex;
 
@@ -23,24 +29,68 @@
 
     align-items:center;
 
-    box-shadow:0 8px 24px rgba(0,0,0,.25);
+    border:2px solid transparent;
 
-    user-select:none;
+    transition:.2s;
+
+}
+
+.marker-card:hover{
+
+    transform:scale(1.08);
 
 }
 
 .marker-icon{
 
-    font-size:22px;
+    font-size:24px;
 
 }
 
 .marker-time{
 
+    margin-top:4px;
+
     font-size:13px;
 
-    font-weight:bold;
+    font-weight:700;
 
-    margin-top:2px;
+    color:var(--text);
+
+}
+
+.marker-warning{
+
+    color:#EF4444;
+
+}
+
+.marker-beer{
+
+    border-color:#F59E0B;
+
+}
+
+.marker-wine{
+
+    border-color:#DC2626;
+
+}
+
+.marker-coffee{
+
+    border-color:#92400E;
+
+}
+
+.marker-food{
+
+    border-color:#22C55E;
+
+}
+
+.marker-cocktail{
+
+    border-color:#8B5CF6;
 
 }
