@@ -1,0 +1,34 @@
+{
+    "app": {
+        "name": "Drink Nearby"
+    },
+
+    "menu": {
+        "profile": "Профиль",
+        "search": "Поиск",
+        "settings": "Настройки"
+    },
+
+    "meeting": {
+        "create": "Я свободен",
+        "coffee": "Кофе",
+        "beer": "Пиво",
+        "walk": "Прогулка",
+        "food": "Поесть",
+        "wine": "Вино"
+    },
+
+    "route": {
+        "walking": "Пешком",
+        "driving": "На машине",
+        "build": "Построить маршрут"
+    },
+
+    "common": {
+        "save": "Сохранить",
+        "cancel": "Отмена",
+        "close": "Закрыть",
+        "online": "Онлайн",
+        "offline": "Не в сети"
+    }
+}

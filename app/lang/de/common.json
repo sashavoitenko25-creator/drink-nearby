@@ -1,0 +1,34 @@
+{
+    "app": {
+        "name": "Drink Nearby"
+    },
+
+    "menu": {
+        "profile": "Profil",
+        "search": "Suche",
+        "settings": "Einstellungen"
+    },
+
+    "meeting": {
+        "create": "Ich bin frei",
+        "coffee": "Kaffee",
+        "beer": "Bier",
+        "walk": "Spaziergang",
+        "food": "Essen",
+        "wine": "Wein"
+    },
+
+    "route": {
+        "walking": "Zu Fuß",
+        "driving": "Mit dem Auto",
+        "build": "Route erstellen"
+    },
+
+    "common": {
+        "save": "Speichern",
+        "cancel": "Abbrechen",
+        "close": "Schließen",
+        "online": "Online",
+        "offline": "Offline"
+    }
+}
