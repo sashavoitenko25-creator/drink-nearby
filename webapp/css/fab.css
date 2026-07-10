@@ -1,0 +1,41 @@
+/* =================================
+   FLOATING ACTION BUTTON
+================================= */
+
+.fab{
+
+    position:absolute;
+
+    right:20px;
+
+    bottom:95px;
+
+    width:64px;
+
+    height:64px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:var(--color-primary);
+
+    color:white;
+
+    font-size:34px;
+
+    cursor:pointer;
+
+    box-shadow:var(--shadow);
+
+    z-index:900;
+
+    transition:.2s;
+
+}
+
+.fab:active{
+
+    transform:scale(.95);
+
+}
