@@ -1,0 +1,46 @@
+.meeting-marker{
+
+    background:none;
+    border:none;
+
+}
+
+.marker-card{
+
+    width:60px;
+
+    height:60px;
+
+    background:white;
+
+    border-radius:18px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    box-shadow:0 8px 24px rgba(0,0,0,.25);
+
+    user-select:none;
+
+}
+
+.marker-icon{
+
+    font-size:22px;
+
+}
+
+.marker-time{
+
+    font-size:13px;
+
+    font-weight:bold;
+
+    margin-top:2px;
+
+}
