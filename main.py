@@ -1,190 +1,75 @@
-import asyncio
+from dotenv import load_dotenv
 
+load_dotenv()
 
-from aiogram import (
-    Bot,
-    Dispatcher
+from telegram import (
+    Update,
+    InlineKeyboardButton,
+    InlineKeyboardMarkup,
+    WebAppInfo,
 )
 
-
-from config import (
-    BOT_TOKEN
+from telegram.ext import (
+    Application,
+    CommandHandler,
+    ContextTypes,
 )
 
-
-from database.queries import (
-    delete_expired_posts
-)
+from config import BOT_TOKEN, WEBAPP_URL
 
 
+# ==========================================
+# /start
+# ==========================================
 
-# =====================================================
-# BOT / DISPATCHER
-# =====================================================
+async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
-
-bot = Bot(
-    token=BOT_TOKEN
-)
-
-
-dp = Dispatcher()
-
-
-
-# =====================================================
-# IMPORT HANDLERS
-# =====================================================
-
-
-from handlers.start import router as start_router
-from handlers.navigation import router as navigation_router
-from handlers.profile import router as profile_router
-from handlers.profile_view import router as profile_view_router
-from handlers.nearby import router as nearby_router
-from handlers.browse import router as browse_router
-from handlers.match import router as match_router
-from handlers.my_matches import router as my_matches_router
-from handlers.actions import router as actions_router
-from handlers.admin import router as admin_router
-from handlers import settings
-
-
-
-
-# =====================================================
-# REGISTER ROUTERS
-# =====================================================
-
-
-dp.include_router(
-    start_router
-)
-
-
-dp.include_router(
-    navigation_router
-)
-
-
-dp.include_router(
-    profile_router
-)
-
-
-dp.include_router(
-    profile_view_router
-)
-
-
-dp.include_router(
-    nearby_router
-)
-
-
-dp.include_router(
-    browse_router
-)
-
-
-dp.include_router(
-    match_router
-)
-
-
-dp.include_router(
-    my_matches_router
-)
-
-
-dp.include_router(
-    actions_router
-)
-
-
-dp.include_router(
-    admin_router
-)
-
-
-dp.include_router(
-    settings.router
-)
-
-
-
-# =====================================================
-# CLEANUP LOOP
-# =====================================================
-
-
-async def cleanup_loop():
-
-    while True:
-
-        try:
-
-            result = delete_expired_posts()
-
-            if result:
-
-                print(
-                    f"🧹 Закрыто анкет: {len(result)}"
+    keyboard = InlineKeyboardMarkup(
+        [
+            [
+                InlineKeyboardButton(
+                    text="🌍 Открыть карту",
+                    web_app=WebAppInfo(url=WEBAPP_URL),
                 )
+            ]
+        ]
+    )
 
+    text = (
+        "🍻 <b>Drink Nearby</b>\n\n"
+        "Находите людей рядом для:\n\n"
+        "☕ Кофе\n"
+        "🍺 Напитков\n"
+        "🚶 Прогулки\n"
+        "🍷 Приятного общения\n\n"
+        "Нажмите кнопку ниже, чтобы открыть карту."
+    )
 
-        except Exception as e:
-
-            print(
-                "Cleanup error:",
-                e
-            )
-
-
-        await asyncio.sleep(60)
-
-
-
-# =====================================================
-# START BOT
-# =====================================================
-
-
-async def main():
-
-    print(
-        "🚀 BOT STARTING..."
+    await update.message.reply_text(
+        text=text,
+        parse_mode="HTML",
+        reply_markup=keyboard,
     )
 
 
-    await bot.delete_webhook(
-        drop_pending_updates=True
+# ==========================================
+# MAIN
+# ==========================================
+
+def main():
+
+    app = Application.builder().token(BOT_TOKEN).build()
+
+    app.add_handler(
+        CommandHandler("start", start)
     )
 
+    print("===================================")
+    print(" Drink Nearby Bot started")
+    print("===================================")
 
-    asyncio.create_task(
-        cleanup_loop()
-    )
-
-
-    print(
-        "✅ BOT STARTED"
-    )
-
-
-    await dp.start_polling(
-        bot
-    )
-
-
-
-# =====================================================
-# RUN
-# =====================================================
+    app.run_polling()
 
 
 if __name__ == "__main__":
-
-    asyncio.run(
-        main()
-    )
+    main()
