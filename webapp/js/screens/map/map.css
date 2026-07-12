@@ -727,12 +727,946 @@
 
 
 .route-info,
+/* ==========================================
+ USER CARD 2.0
+========================================== */
+
+
 .user-card{
+
+
+    position:fixed;
+
+
+    left:16px;
+
+
+    right:16px;
+
+
+    bottom:20px;
+
+
+    z-index:5000;
+
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    gap:14px;
+
+
+
+    padding:18px;
+
+
+
+    background:
+
+        rgba(17,21,29,.96);
+
+
+
+    backdrop-filter:
+
+        blur(25px);
+
+
+
+    border-radius:
+
+        30px;
+
+
+
+    border:
+
+        1px solid
+
+        rgba(255,255,255,.1);
+
+
+
+    color:white;
+
+
+
+    box-shadow:
+
+        0 20px 50px
+
+        rgba(0,0,0,.5);
+
+
+}
+
+
+
+
+
+.user-card-close{
+
+
+    position:absolute;
+
+
+    right:12px;
+
+
+    top:10px;
+
+
+
+    width:32px;
+
+
+    height:32px;
+
+
+
+    border-radius:50%;
+
+
+
+    background:
+
+        rgba(255,255,255,.1);
+
+
+
+    color:white;
+
+
+}
+
+
+
+
+
+.user-card-avatar{
+
+
+    width:76px;
+
+
+    height:76px;
+
+
+    border-radius:50%;
+
+
+    overflow:hidden;
+
+
+    background:#252b38;
+
+
+
+    display:flex;
+
+
+    justify-content:center;
+
+
+    align-items:center;
+
+
+    font-size:34px;
+
+
+}
+
+
+
+
+.user-card-avatar img{
+
+
+    width:100%;
+
+
+    height:100%;
+
+
+    object-fit:cover;
+
+
+}
+
+
+
+
+.user-card-content{
+
+
+    flex:1;
+
+
+}
+
+
+
+
+
+.user-card-name{
+
+
+    font-size:22px;
+
+
+    font-weight:900;
+
+
+}
+
+
+
+
+.user-card-online{
+
+
+    color:#22c55e;
+
+
+    font-size:13px;
+
+
+    margin-top:4px;
+
+
+}
+
+
+
+
+
+.user-card-tag{
+
+
+    display:inline-flex;
+
+
+    margin-top:8px;
+
+
+
+    padding:
+
+        6px 12px;
+
+
+
+    border-radius:
+
+        20px;
+
+
+
+    background:
+
+        rgba(79,140,255,.2);
+
+
+
+    font-size:14px;
+
+
+}
+
+
+
+
+
+.user-card-info-line{
+
+
+    margin-top:6px;
+
+
+    color:
+
+        rgba(255,255,255,.75);
+
+
+    font-size:14px;
+
+
+}
+
+
+
+
+.user-route-button{
+
+
+    width:58px;
+
+
+    height:58px;
+
+
+
+    border-radius:50%;
+
+
+
+    border:none;
+
+
+
+    background:
+
+        linear-gradient(
+
+            135deg,
+
+            #4f8cff,
+
+            #2563eb
+
+        );
+
+
+
+    color:white;
+
+
+
+    font-size:24px;
+
+
+}
+
+/* ==========================================
+   ACTIVE PANEL
+========================================== */
+
+
+.active-overlay{
+
+
+    position:fixed;
+
+
+    inset:0;
+
+
+    z-index:5000;
+
+
+
+    background:
+
+        rgba(0,0,0,.55);
+
+
+
+    display:flex;
+
+
+    align-items:flex-end;
+
+
+}
+
+
+
+.active-panel{
+
+
+    width:100%;
+
+
+
+    background:
+
+        rgba(17,21,29,.98);
+
+
+
+    border-radius:
+
+        32px 32px 0 0;
+
+
+
+    padding:
+
+        24px;
+
+
+
+    color:white;
+
 
 
     animation:
 
         appear .25s ease;
+
+
+}
+
+
+
+
+
+.active-title{
+
+
+    font-size:24px;
+
+
+    font-weight:900;
+
+
+}
+
+
+
+.active-subtitle{
+
+
+    margin-top:6px;
+
+
+    color:
+
+        var(--text-secondary);
+
+
+
+    font-size:14px;
+
+
+}
+
+
+
+
+
+.active-section{
+
+
+    margin-top:24px;
+
+
+}
+
+
+
+.active-label{
+
+
+    font-size:15px;
+
+
+    font-weight:700;
+
+
+    margin-bottom:12px;
+
+
+}
+
+
+
+
+
+.active-times,
+.active-types{
+
+
+    display:flex;
+
+
+    gap:10px;
+
+
+    flex-wrap:wrap;
+
+
+}
+
+
+
+
+.active-times button,
+.active-types button{
+
+
+    height:42px;
+
+
+    padding:
+
+        0 16px;
+
+
+
+    border-radius:
+
+        20px;
+
+
+
+    background:
+
+        rgba(255,255,255,.08);
+
+
+
+    border:
+
+        1px solid
+
+        rgba(255,255,255,.1);
+
+
+
+    color:white;
+
+
+    font-weight:600;
+
+
+}
+
+
+
+
+
+.active-times button.selected,
+.active-types button.selected{
+
+
+    background:
+
+        linear-gradient(
+
+            135deg,
+
+            #4f8cff,
+
+            #2563eb
+
+        );
+
+
+
+    border-color:transparent;
+
+
+}
+
+
+
+
+
+.active-start{
+
+
+    width:100%;
+
+
+    height:58px;
+
+
+    margin-top:28px;
+
+
+
+    border-radius:
+
+        20px;
+
+
+
+    border:none;
+
+
+
+    background:
+
+        linear-gradient(
+
+            135deg,
+
+            #22c55e,
+
+            #16a34a
+
+        );
+
+
+
+    color:white;
+
+
+
+    font-size:17px;
+
+
+    font-weight:800;
+
+
+}
+
+
+
+
+
+.active-close{
+
+
+    width:100%;
+
+
+    height:50px;
+
+
+    margin-top:12px;
+
+
+
+    border-radius:
+
+        18px;
+
+
+
+    background:
+
+        rgba(255,255,255,.08);
+
+
+
+    color:white;
+
+
+
+    border:
+
+        1px solid
+
+        rgba(255,255,255,.1);
+
+
+}
+
+/* ==========================================
+   ROUTE PANEL 2.0
+========================================== */
+
+
+.route-overlay{
+
+
+    position:fixed;
+
+
+    inset:0;
+
+
+    z-index:6000;
+
+
+
+    background:
+
+        rgba(0,0,0,.55);
+
+
+
+    display:flex;
+
+
+    align-items:flex-end;
+
+
+}
+
+
+
+.route-panel{
+
+
+    width:100%;
+
+
+
+    background:
+
+        rgba(17,21,29,.98);
+
+
+
+    border-radius:
+
+        32px 32px 0 0;
+
+
+
+    padding:
+
+        24px;
+
+
+
+    color:white;
+
+
+
+    animation:
+
+        appear .25s ease;
+
+
+}
+
+
+
+
+
+.route-close{
+
+
+    position:absolute;
+
+
+    right:20px;
+
+
+    top:20px;
+
+
+
+    width:38px;
+
+
+    height:38px;
+
+
+
+    border-radius:50%;
+
+
+
+    border:none;
+
+
+
+    background:
+
+        rgba(255,255,255,.1);
+
+
+
+    color:white;
+
+
+    font-size:20px;
+
+
+}
+
+
+
+
+
+.route-title{
+
+
+    font-size:26px;
+
+
+    font-weight:900;
+
+
+}
+
+
+
+.route-subtitle{
+
+
+    margin-top:5px;
+
+
+    color:
+
+        rgba(255,255,255,.6);
+
+
+    font-size:14px;
+
+
+}
+
+
+
+
+.route-options{
+
+
+    margin-top:24px;
+
+
+    display:flex;
+
+
+    flex-direction:column;
+
+
+    gap:12px;
+
+
+}
+
+
+
+
+
+.route-option{
+
+
+    width:100%;
+
+
+    min-height:72px;
+
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    gap:16px;
+
+
+
+    padding:
+
+        14px;
+
+
+
+    border-radius:
+
+        22px;
+
+
+
+    border:
+
+        1px solid
+
+        rgba(255,255,255,.1);
+
+
+
+    background:
+
+        rgba(255,255,255,.06);
+
+
+
+    color:white;
+
+
+
+    text-align:left;
+
+
+}
+
+
+
+
+
+.route-option:hover{
+
+
+    background:
+
+        rgba(79,140,255,.15);
+
+
+}
+
+
+
+
+.route-icon{
+
+
+    width:48px;
+
+
+    height:48px;
+
+
+
+    border-radius:16px;
+
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    justify-content:center;
+
+
+
+    background:
+
+        rgba(255,255,255,.08);
+
+
+
+    font-size:26px;
+
+
+}
+
+
+
+
+.route-name{
+
+
+    font-size:18px;
+
+
+    font-weight:800;
+
+
+}
+
+
+
+.route-description{
+
+
+    margin-top:3px;
+
+
+    color:
+
+        rgba(255,255,255,.6);
+
+
+
+    font-size:13px;
 
 
 }

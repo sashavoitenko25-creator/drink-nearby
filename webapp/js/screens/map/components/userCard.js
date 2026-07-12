@@ -1,6 +1,7 @@
 // ============================================
-// LIVE USER CARD
+// USER CARD 2.0
 // ============================================
+
 
 import {
     createRoutePanel
@@ -28,9 +29,11 @@ import {
 
 
 
+
 // ============================================
 // CREATE USER CARD
 // ============================================
+
 
 export function createUserCard(
 
@@ -42,29 +45,87 @@ export function createUserCard(
 
 
     const card =
+
         document.createElement("div");
 
 
+
     card.className =
+
         "user-card";
 
 
 
+
     const name =
+
         user.first_name
+
         ??
+
         "User";
 
 
 
+
     const activity =
+
         user.activity_type
+
         ??
+
         "💬 Talk";
 
 
 
-    let timeLeft = "";
+
+    let distance =
+
+        "Рядом";
+
+
+
+
+    if(user.distance !== undefined){
+
+
+        distance =
+
+
+            user.distance < 1000
+
+
+            ?
+
+
+            `${user.distance} м`
+
+
+            :
+
+
+            `${
+
+                Math.round(
+
+                    user.distance / 100
+
+                )
+
+                /
+
+                10
+
+            } км`;
+
+
+    }
+
+
+
+
+    let activeTime = "";
+
 
 
 
@@ -72,13 +133,22 @@ export function createUserCard(
 
 
         const diff =
-            new Date(user.active_until)
+
+            new Date(
+
+                user.active_until
+
+            )
+
             -
+
             new Date();
 
 
 
+
         const minutes =
+
             Math.max(
 
                 0,
@@ -93,86 +163,29 @@ export function createUserCard(
 
 
 
-        timeLeft =
+        activeTime =
+
             `${minutes} мин`;
 
-
     }
 
 
-
-    let distanceText = "";
-
-
-
-    if(user.distance !== undefined){
-
-
-        if(user.distance < 1000){
-
-
-            distanceText =
-
-                `📍 ${user.distance} м`;
-
-
-        }
-
-        else{
-
-
-            distanceText =
-
-                `📍 ${
-                    Math.round(
-
-                        user.distance / 100
-
-                    )
-
-                    /
-
-                    10
-
-                } км`;
-
-
-        }
-
-
-    }
-
-
-
-
-    let walkingTime = "";
-
-
-
-    if(user.distance !== undefined){
-
-
-        const minutes =
-
-            Math.ceil(
-
-                user.distance / 80
-
-            );
-
-
-
-        walkingTime =
-
-            `🚶 ~${minutes} мин пешком`;
-
-
-    }
 
 
 
 
     card.innerHTML = `
+
+
+
+        <button class="user-card-close">
+
+            ✕
+
+
+        </button>
+
+
 
 
         <div class="user-card-avatar">
@@ -196,109 +209,106 @@ export function createUserCard(
 
 
 
+
+
         <div class="user-card-content">
 
 
+
             <div class="user-card-name">
+
 
                 ${name}
 
                 ${
                     user.age
+
                     ?
-                    `, ${user.age}`
+
+                    ", "
+
+                    +
+
+                    user.age
+
                     :
+
                     ""
+
                 }
 
-            </div>
-
-
-
-            <div class="user-card-status">
-
-                🟢 Сейчас на карте
 
             </div>
 
 
 
-            <div class="user-card-activity">
+
+            <div class="user-card-online">
+
+
+                🟢 Сейчас ищет собеседника
+
+
+            </div>
+
+
+
+
+
+            <div class="user-card-tag">
+
 
                 ${activity}
 
+
             </div>
 
 
 
+
+
+            <div class="user-card-info-line">
+
+
+                📍 ${distance}
+
+
+            </div>
+
+
+
+
+
             ${
-                distanceText
+                activeTime
+
 
                 ?
 
+
                 `
 
-                <div class="user-card-distance">
 
-                    ${distanceText}
+                <div class="user-card-info-line">
+
+
+                    ⏳ Активен ещё ${activeTime}
+
 
                 </div>
 
+
                 `
 
+
                 :
+
 
                 ""
 
             }
 
 
-
-
-            ${
-                walkingTime
-
-                ?
-
-                `
-
-                <div class="user-card-walk">
-
-                    ${walkingTime}
-
-                </div>
-
-                `
-
-                :
-
-                ""
-
-            }
-
-
-
-
-            ${
-                timeLeft
-
-                ?
-
-                `
-
-                <div class="user-card-time">
-
-                    ⏳ ${timeLeft}
-
-                </div>
-
-                `
-
-                :
-
-                ""
-
-            }
 
 
         </div>
@@ -306,14 +316,43 @@ export function createUserCard(
 
 
 
+
         <button class="user-route-button">
 
-            🗺 Маршрут
+
+            🧭
+
 
         </button>
 
 
+
+
     `;
+
+
+
+
+
+    // ============================================
+    // CLOSE
+    // ============================================
+
+
+    card
+    .querySelector(
+
+        ".user-card-close"
+
+    )
+    .onclick = ()=>{
+
+
+        card.remove();
+
+
+    };
+
 
 
 
@@ -323,136 +362,159 @@ export function createUserCard(
     // ============================================
 
 
-    const routeButton =
-        card.querySelector(
+    card
+    .querySelector(
 
-            ".user-route-button"
+        ".user-route-button"
+
+    )
+    .onclick = ()=>{
+
+
+        const panel =
+
+            createRoutePanel(
+
+                async(mode)=>{
+
+
+                    try{
+
+
+                        const location =
+
+                            getState(
+
+                                "location"
+
+                            );
+
+
+
+                        if(!location){
+
+
+                            alert(
+
+                                "Сначала нажми 📍"
+
+                            );
+
+
+                            return;
+
+                        }
+
+
+
+
+
+                        const route =
+
+                            await getRoute(
+
+                                {
+
+
+                                    latitude:
+
+                                        location.latitude,
+
+
+                                    longitude:
+
+                                        location.longitude
+
+
+                                },
+
+
+                                {
+
+
+                                    latitude:
+
+                                        user.latitude,
+
+
+                                    longitude:
+
+                                        user.longitude
+
+
+                                },
+
+
+                                mode
+
+
+                            );
+
+
+
+
+
+                        drawRoute(
+
+                            map,
+
+                            route.geometry
+
+                        );
+
+
+
+
+
+                        showRouteInfo(
+
+                            route
+
+                        );
+
+
+
+                    }
+
+
+
+                    catch(error){
+
+
+                        console.error(
+
+                            "Route error",
+
+                            error
+
+                        );
+
+
+                    }
+
+
+
+                }
+
+
+            );
+
+
+
+        document.body.appendChild(
+
+            panel
 
         );
 
 
 
-    routeButton.onclick =
-        ()=>{
+    };
 
-
-            const panel =
-                createRoutePanel(
-
-                    async(mode)=>{
-
-
-                        try{
-
-
-                            const location =
-                                getState(
-
-                                    "location"
-
-                                );
-
-
-
-                            if(!location){
-
-
-                                alert(
-
-                                    "Сначала нажми 📍"
-
-                                );
-
-
-                                return;
-
-                            }
-
-
-
-                            const route =
-                                await getRoute(
-
-                                    {
-
-                                        latitude:
-                                            location.latitude,
-
-                                        longitude:
-                                            location.longitude
-
-                                    },
-
-
-                                    {
-
-                                        latitude:
-                                            user.latitude,
-
-                                        longitude:
-                                            user.longitude
-
-                                    },
-
-
-                                    mode
-
-                                );
-
-
-
-                            drawRoute(
-
-                                map,
-
-                                route.geometry
-
-                            );
-
-
-
-                            showRouteInfo(
-
-                                route
-
-                            );
-
-
-                        }
-
-
-                        catch(error){
-
-
-                            console.error(
-
-                                "Route error",
-
-                                error
-
-                            );
-
-
-                        }
-
-
-                    }
-
-                );
-
-
-
-            document.body.appendChild(
-
-                panel
-
-            );
-
-
-        };
 
 
 
     return card;
+
 
 }
