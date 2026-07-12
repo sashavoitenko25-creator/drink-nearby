@@ -1,9 +1,14 @@
 name: Deploy Drink Nearby WebApp
 
+
 on:
   push:
     branches:
       - main
+
+
+permissions:
+  contents: write
 
 
 jobs:
@@ -15,12 +20,18 @@ jobs:
 
     steps:
 
+
       - name: Checkout
         uses: actions/checkout@v4
+
 
 
       - name: Deploy WebApp
         uses: peaceiris/actions-gh-pages@v4
         with:
+
           github_token: ${{ secrets.GITHUB_TOKEN }}
+
           publish_dir: ./webapp
+
+          publish_branch: gh-pages
