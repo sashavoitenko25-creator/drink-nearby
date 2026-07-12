@@ -1,0 +1,604 @@
+/* ==========================================
+   MAP SCREEN
+========================================== */
+
+.map-screen {
+
+    width: 100%;
+
+    height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    background: var(--bg);
+
+    overflow: hidden;
+
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.map-header {
+
+    height: 64px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: var(--card);
+
+    border-bottom: 1px solid rgba(255,255,255,.08);
+
+    flex-shrink: 0;
+
+    z-index: 1000;
+
+}
+
+.map-title {
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+}
+
+/* ==========================================
+   MAP
+========================================== */
+
+.map-container {
+
+    position: relative;
+
+    flex: 1;
+
+    width: 100%;
+
+    overflow: hidden;
+
+}
+
+/* Leaflet сам рисует карту */
+
+.leaflet-container {
+
+    width: 100%;
+
+    height: 100%;
+
+    background: #1b1b1b;
+
+}
+
+/* ==========================================
+   FLOATING BUTTON
+========================================== */
+
+.map-controls {
+
+    position: fixed;
+
+    right: 20px;
+
+    bottom: 24px;
+
+    z-index: 9999;
+
+}
+
+.map-location-button {
+
+    width: 56px;
+
+    height: 56px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #2196F3;
+
+    color: white;
+
+    font-size: 24px;
+
+    cursor: pointer;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,.25);
+
+    transition: .2s;
+
+}
+
+.map-location-button:hover {
+
+    transform: scale(1.05);
+
+}
+
+.map-location-button:active {
+
+    transform: scale(.95);
+
+}
+
+.map-active-button{
+
+    margin-top:10px;
+
+    width:56px;
+
+    height:56px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#00c853;
+
+    color:white;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+}
+
+/* ==========================================
+   USER MAP MARKER
+========================================== */
+
+
+.user-map-marker{
+
+    background:none;
+
+    border:none;
+
+    text-align:center;
+
+}
+
+
+.marker-avatar{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    background:#00c853;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:20px;
+
+    border:3px solid white;
+
+    box-shadow:
+    0 4px 12px rgba(0,0,0,.35);
+
+}
+
+
+.marker-name{
+
+    margin-top:4px;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    color:white;
+
+    background:rgba(0,0,0,.55);
+
+    padding:3px 8px;
+
+    border-radius:10px;
+
+    white-space:nowrap;
+
+}
+
+
+.marker-type{
+
+    position:absolute;
+
+    top:-5px;
+
+    right:-10px;
+
+    font-size:18px;
+
+}
+
+/* ==========================================
+   ROUTE PANEL
+========================================== */
+
+
+.route-panel{
+
+    position:fixed;
+
+    left:16px;
+
+    right:16px;
+
+    bottom:20px;
+
+    background:var(--card);
+
+    border-radius:24px;
+
+    padding:20px;
+
+    z-index:4000;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.35);
+
+}
+
+
+
+.route-title{
+
+    font-size:20px;
+
+    font-weight:700;
+
+    margin-bottom:18px;
+
+}
+
+
+
+.route-options{
+
+    display:flex;
+
+    gap:10px;
+
+}
+
+
+
+.route-options button{
+
+    flex:1;
+
+    border:none;
+
+    border-radius:16px;
+
+    padding:15px 8px;
+
+    background:#333;
+
+    color:white;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:6px;
+
+    align-items:center;
+
+    font-size:22px;
+
+}
+
+
+
+.route-options span{
+
+    font-size:13px;
+
+}
+
+/* ==========================================
+   ROUTE INFO
+========================================== */
+
+
+.route-info{
+
+    position:fixed;
+
+    top:80px;
+
+    left:16px;
+
+    right:16px;
+
+    background:var(--card);
+
+    border-radius:18px;
+
+    padding:15px;
+
+    z-index:4000;
+
+    font-size:16px;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.3);
+
+}
+
+/* ==========================================
+   ROUTE INFO
+========================================== */
+
+
+.route-info{
+
+    position:fixed;
+
+    left:16px;
+
+    right:16px;
+
+    bottom:20px;
+
+    background:var(--card);
+
+    border-radius:22px;
+
+    padding:18px;
+
+    z-index:5000;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.35);
+
+    font-size:18px;
+
+}
+
+
+
+.route-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:12px;
+
+    font-weight:700;
+
+}
+
+
+
+.route-close{
+
+    border:none;
+
+    background:#333;
+
+    color:white;
+
+    width:32px;
+
+    height:32px;
+
+    border-radius:50%;
+
+}
+
+.user-card-distance{
+
+    margin-top:8px;
+
+    font-size:15px;
+
+}
+
+
+
+.user-card-walk{
+
+    margin-top:4px;
+
+    opacity:.8;
+
+    font-size:14px;
+
+}
+
+.marker-distance{
+
+    margin-top:3px;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    color:white;
+
+    background:#00c853;
+
+    padding:2px 7px;
+
+    border-radius:10px;
+
+    display:inline-block;
+
+}
+
+/* ==========================================
+   MAP FILTERS
+========================================== */
+
+
+.map-filters{
+
+    position:fixed;
+
+    top:75px;
+
+    left:10px;
+
+    right:10px;
+
+    display:flex;
+
+    gap:8px;
+
+    overflow-x:auto;
+
+    z-index:2000;
+
+}
+
+
+
+.map-filters button{
+
+    border:none;
+
+    background:var(--card);
+
+    color:white;
+
+    padding:10px 14px;
+
+    border-radius:20px;
+
+    white-space:nowrap;
+
+}
+
+
+
+.map-filters button.active{
+
+    background:var(--primary);
+
+}
+
+/* ==========================================
+   USER MARKERS
+========================================== */
+
+
+.marker-pulse{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    animation:pulse 2s infinite;
+
+}
+
+
+
+.marker-icon{
+
+    width:36px;
+
+    height:36px;
+
+    background:white;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:20px;
+
+}
+
+
+
+.marker-pulse.red{
+
+    background:rgba(255,0,0,.35);
+
+}
+
+
+
+.marker-pulse.blue{
+
+    background:rgba(0,120,255,.35);
+
+}
+
+
+
+.marker-pulse.green{
+
+    background:rgba(0,200,80,.35);
+
+}
+
+
+
+.marker-pulse.brown{
+
+    background:rgba(150,80,20,.35);
+
+}
+
+
+
+@keyframes pulse{
+
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+
+    50%{
+
+        transform:scale(1.15);
+
+    }
+
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+
+}

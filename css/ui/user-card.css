@@ -1,0 +1,135 @@
+/* ==========================================
+   LIVE USER CARD
+========================================== */
+
+
+.user-card{
+
+    position:fixed;
+
+    left:16px;
+
+    right:16px;
+
+    bottom:20px;
+
+    background:var(--card);
+
+    border-radius:24px;
+
+    padding:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    z-index:3000;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.35);
+
+}
+
+
+
+.user-card-avatar{
+
+    width:64px;
+
+    height:64px;
+
+    border-radius:50%;
+
+    overflow:hidden;
+
+    background:#333;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:30px;
+
+}
+
+
+
+.user-card-avatar img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+
+
+.user-card-content{
+
+    flex:1;
+
+}
+
+
+
+.user-card-name{
+
+    font-size:20px;
+
+    font-weight:700;
+
+}
+
+
+
+.user-card-status{
+
+    color:#00c853;
+
+    margin-top:4px;
+
+}
+
+
+
+.user-card-activity{
+
+    margin-top:8px;
+
+    font-size:16px;
+
+}
+
+
+
+.user-card-time{
+
+    margin-top:5px;
+
+    opacity:.7;
+
+}
+
+
+
+.user-route-button{
+
+    border:none;
+
+    border-radius:16px;
+
+    padding:12px;
+
+    background:var(--primary);
+
+    color:white;
+
+    font-size:16px;
+
+}
