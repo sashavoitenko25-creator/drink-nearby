@@ -1,9 +1,5 @@
-/* ==========================================
-   APP GLOBAL
-========================================== */
-
 html,
-body {
+body{
 
     width:100%;
 
@@ -15,59 +11,64 @@ body {
 
     overflow:hidden;
 
-}
+    background:var(--bg);
 
+    color:var(--text);
 
-/* ==========================================
-   APP CONTAINER
-========================================== */
-
-#screen {
-
-    position:fixed;
-
-    inset:0;
-
-    z-index:100;
-
-    pointer-events:auto;
+    font-family:var(--font);
 
 }
 
 
-/* ==========================================
-   GLOBAL ELEMENTS
-========================================== */
 
-* {
+*{
 
     box-sizing:border-box;
 
 }
 
 
-button {
+
+button{
 
     font-family:inherit;
+
+    cursor:pointer;
+
+    transition:.25s ease;
 
 }
 
 
-img {
+
+button:active{
+
+    transform:scale(.96);
+
+}
+
+
+
+img{
 
     max-width:100%;
 
 }
 
 
-/* ==========================================
-   SCROLL
-========================================== */
 
-::-webkit-scrollbar {
+#screen{
 
-    width:0;
+    position:fixed;
 
-    height:0;
+    inset:0;
+
+}
+
+
+
+::-webkit-scrollbar{
+
+    display:none;
 
 }

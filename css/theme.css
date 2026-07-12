@@ -1,60 +1,50 @@
-/* ==========================================
-   DRINK NEARBY DESIGN SYSTEM
-========================================== */
-
 :root{
 
-    /* Backgrounds */
+    --bg:#090b10;
 
-    --bg:#0f1115;
-    --surface:#171a21;
-    --card:#1d212b;
+    --surface:#11151d;
 
-    /* Colors */
+    --card:#171c26;
 
-    --primary:#3b82f6;
-    --primary-hover:#2563eb;
+    --card-light:#202735;
+
+
+    --primary:#4f8cff;
+
+    --primary-hover:#3676ee;
+
 
     --success:#22c55e;
+
     --danger:#ef4444;
+
     --warning:#f59e0b;
 
-    /* Text */
 
     --text:#ffffff;
-    --text-secondary:#94a3b8;
 
-    /* Border */
+    --text-secondary:#a7b0c0;
 
-    --border:#2c3342;
 
-    /* Radius */
+    --border:
+        rgba(255,255,255,.08);
+
 
     --radius-xs:10px;
-    --radius-sm:16px;
-    --radius-md:22px;
-    --radius-lg:30px;
 
-    /* Shadow */
+    --radius-sm:16px;
+
+    --radius-md:22px;
+
+    --radius-lg:32px;
+
 
     --shadow:
 
-        0 10px 30px rgba(0,0,0,.25);
+        0 20px 50px
 
-    /* Spacing */
+        rgba(0,0,0,.45);
 
-    --space-1:8px;
-    --space-2:12px;
-    --space-3:16px;
-    --space-4:24px;
-    --space-5:32px;
-    --space-6:48px;
-
-    /* Animation */
-
-    --transition:.25s ease;
-
-    /* Font */
 
     --font:
 
@@ -65,8 +55,6 @@
         "Segoe UI",
 
         Roboto,
-
-        Helvetica,
 
         Arial,
 
