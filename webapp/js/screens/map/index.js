@@ -2,47 +2,64 @@
 // MAP SCREEN
 // ============================================
 
+
 import { initMap } from "./initMap.js";
+
 
 import {
     getCurrentLocation
 } from "../../services/location/location.js";
 
-import {
-    startLocationTracker
-} from "../../services/location/tracker.js";
-
-import {
-    startActiveWatcher
-} from "../../services/location/activeWatcher.js";
 
 import {
     setUserMarker
 } from "./location.js";
 
+
 import {
     updateUserLocation
 } from "../../api/location.js";
+
 
 import {
     getNearbyUsers
 } from "../../api/nearby.js";
 
+
 import {
     addUserMarkers
 } from "./markers.js";
+
 
 import {
     startActive
 } from "../../api/active.js";
 
+
 import {
     createActivePanel
 } from "./components/activePanel.js";
 
+
 import {
     createMapFilters
 } from "./components/mapFilters.js";
+
+
+import {
+    createTestBots
+} from "../../api/testBots.js";
+
+
+import {
+    startLocationTracker
+} from "../../services/location/tracker.js";
+
+
+import {
+    startActiveWatcher
+} from "../../services/location/activeWatcher.js";
+
 
 import {
     getState,
@@ -50,39 +67,58 @@ import {
 } from "../../core/state.js";
 
 
+
+
 // ============================================
+
 
 let nearbyInterval = null;
 
+
 let currentFilter = "all";
 
-let mapUsers = [];
+
+let users = [];
+
+
 
 
 // ============================================
-// CREATE MAP SCREEN
+// CREATE SCREEN
 // ============================================
+
 
 export function createMapScreen(){
 
 
+
     const screen =
+
         document.createElement("div");
 
 
+
     screen.className =
+
         "map-screen";
+
+
 
 
 
     // HEADER
 
+
     const header =
+
         document.createElement("div");
 
 
+
     header.className =
+
         "map-header";
+
 
 
     header.innerHTML = `
@@ -97,51 +133,106 @@ export function createMapScreen(){
 
 
 
+
+
+
     // MAP
 
+
     const mapContainer =
+
         document.createElement("div");
 
 
+
     mapContainer.className =
+
         "map-container";
+
+
+
 
 
 
     // CONTROLS
 
+
     const controls =
+
         document.createElement("div");
 
 
+
     controls.className =
+
         "map-controls";
 
 
 
+
+
+
     const locationButton =
+
         document.createElement("button");
 
 
+
     locationButton.className =
+
         "map-location-button";
 
 
+
     locationButton.innerHTML =
+
         "📍";
 
 
 
+
+
+
     const activeButton =
+
         document.createElement("button");
 
 
+
     activeButton.className =
+
         "map-active-button";
 
 
+
     activeButton.innerHTML =
+
         "🟢";
+
+
+
+
+
+
+
+    const testButton =
+
+        document.createElement("button");
+
+
+
+    testButton.className =
+
+        "map-test-button";
+
+
+
+    testButton.innerHTML =
+
+        "🤖";
+
+
+
 
 
 
@@ -149,15 +240,24 @@ export function createMapScreen(){
 
         locationButton,
 
-        activeButton
+        activeButton,
+
+        testButton
 
     );
 
 
 
+
+
+
+
+
     // FILTERS
 
+
     const filters =
+
         createMapFilters(
 
             (type)=>{
@@ -175,6 +275,9 @@ export function createMapScreen(){
 
 
 
+
+
+
     screen.append(
 
         header,
@@ -189,24 +292,31 @@ export function createMapScreen(){
 
 
 
+
+
+
     let map = null;
 
 
 
+
+
+
+
     // ============================================
-    // FILTER USERS
+    // FILTER
     // ============================================
 
-    function filterUsers(users){
+
+    function filterUsers(){
 
 
-        if(
 
-            currentFilter === "all"
+        if(currentFilter === "all"){
 
-        ){
 
             return users;
+
 
         }
 
@@ -233,13 +343,18 @@ export function createMapScreen(){
         });
 
 
+
     }
 
 
 
+
+
+
     // ============================================
-    // RENDER MARKERS
+    // RENDER
     // ============================================
+
 
     function renderUsers(){
 
@@ -252,21 +367,11 @@ export function createMapScreen(){
 
 
 
-        const filtered =
-
-            filterUsers(
-
-                mapUsers
-
-            );
-
-
-
         addUserMarkers(
 
             map,
 
-            filtered
+            filterUsers()
 
         );
 
@@ -275,25 +380,23 @@ export function createMapScreen(){
 
 
 
+
+
+
+
     // ============================================
     // LOAD USERS
     // ============================================
 
+
     async function loadNearbyUsers(){
-
-
-        if(!map){
-
-            return;
-
-        }
 
 
 
         try{
 
 
-            mapUsers =
+            users =
 
                 await getNearbyUsers();
 
@@ -305,9 +408,9 @@ export function createMapScreen(){
 
             console.log(
 
-                "👥 Users:",
+                "👥 Nearby:",
 
-                mapUsers
+                users
 
             );
 
@@ -336,9 +439,13 @@ export function createMapScreen(){
 
 
 
+
+
+
     // ============================================
     // INIT MAP
     // ============================================
+
 
     setTimeout(()=>{
 
@@ -371,6 +478,7 @@ export function createMapScreen(){
 
 
 
+
         nearbyInterval =
 
             setInterval(
@@ -389,255 +497,353 @@ export function createMapScreen(){
 
 
 
+
+
+
+
     // ============================================
-    // LOCATION BUTTON
+    // LOCATION
     // ============================================
 
-    locationButton.onclick =
 
-        async()=>{
-
-
-            try{
-
-
-                locationButton.innerHTML =
-                    "⌛";
+    locationButton.onclick = async()=>{
 
 
 
-                const location =
-
-                    await getCurrentLocation();
+        try{
 
 
+            locationButton.innerHTML =
 
-                setUserMarker(
+                "⌛";
 
-                    map,
+
+
+            const location =
+
+                await getCurrentLocation();
+
+
+
+
+
+            setUserMarker(
+
+                map,
+
+                location
+
+            );
+
+
+
+
+
+            setState(
+
+                "location",
+
+                location
+
+            );
+
+
+
+
+
+
+            const user =
+
+                getState(
+
+                    "user"
+
+                );
+
+
+
+
+            if(user){
+
+
+                await updateUserLocation(
+
+                    user.id,
 
                     location
 
                 );
 
 
-
-                setState(
-
-                    "location",
-
-                    {
-
-                        latitude:
-                            location.latitude,
-
-                        longitude:
-                            location.longitude,
-
-                        accuracy:
-                            location.accuracy
-
-                    }
-
-                );
-
-
-
-                const user =
-
-                    getState(
-
-                        "user"
-
-                    );
-
-
-
-                if(user){
-
-
-                    await updateUserLocation(
-
-                        user.id,
-
-                        location
-
-                    );
-
-
-                }
-
-
-
-                await loadNearbyUsers();
-
-
-
-                locationButton.innerHTML =
-                    "📍";
-
-
             }
 
 
-            catch(error){
 
 
-                console.error(
+            await loadNearbyUsers();
 
-                    "Location error",
 
-                    error
 
-                );
 
+            locationButton.innerHTML =
 
-                locationButton.innerHTML =
-                    "📍";
+                "📍";
 
 
-            }
 
+        }
 
-        };
 
 
+        catch(error){
 
 
+            console.error(
 
-    // ============================================
-    // ACTIVE BUTTON
-    // ============================================
-
-    activeButton.onclick =
-
-        ()=>{
-
-
-            const panel =
-
-                createActivePanel(
-
-                    async({
-
-                        minutes,
-
-                        activity
-
-                    })=>{
-
-
-                        const user =
-
-                            getState(
-
-                                "user"
-
-                            );
-
-
-
-                        if(!user){
-
-                            return;
-
-                        }
-
-
-
-                        try{
-
-
-                            await startActive(
-
-                                user.id,
-
-                                minutes,
-
-                                activity
-
-                            );
-
-
-
-                            startLocationTracker(
-
-                                user.id
-
-                            );
-
-
-
-                            startActiveWatcher(
-
-                                user.id,
-
-                                new Date(
-
-                                    Date.now()
-
-                                    +
-
-                                    minutes * 60000
-
-                                ),
-
-
-                                ()=>{
-
-
-                                    activeButton.innerHTML =
-                                        "🟢";
-
-
-                                    loadNearbyUsers();
-
-
-                                }
-
-                            );
-
-
-
-                            panel.remove();
-
-
-
-                            await loadNearbyUsers();
-
-
-                        }
-
-
-                        catch(error){
-
-
-                            console.error(
-
-                                "Active error",
-
-                                error
-
-                            );
-
-
-                        }
-
-
-                    }
-
-                );
-
-
-
-            document.body.appendChild(
-
-                panel
+                error
 
             );
 
 
-        };
+            locationButton.innerHTML =
+
+                "📍";
+
+
+        }
+
+
+
+    };
+
+
+
+
+
+
+
+
+
+    // ============================================
+    // ACTIVE
+    // ============================================
+
+
+    activeButton.onclick = ()=>{
+
+
+
+        const panel =
+
+            createActivePanel(
+
+                async(data)=>{
+
+
+
+                    const user =
+
+                        getState(
+
+                            "user"
+
+                        );
+
+
+
+
+                    if(!user){
+
+                        alert(
+
+                            "User not found"
+
+                        );
+
+                        return;
+
+                    }
+
+
+
+
+
+                    await startActive(
+
+                        user.id,
+
+                        data.minutes,
+
+                        data.activity
+
+                    );
+
+
+
+
+
+                    startLocationTracker(
+
+                        user.id
+
+                    );
+
+
+
+
+
+                    startActiveWatcher(
+
+                        user.id,
+
+                        new Date(
+
+                            Date.now()
+
+                            +
+
+                            data.minutes * 60000
+
+                        ),
+
+                        ()=>{
+
+
+                            loadNearbyUsers();
+
+
+                        }
+
+                    );
+
+
+
+
+
+                    panel.remove();
+
+
+
+
+                    await loadNearbyUsers();
+
+
+
+                }
+
+            );
+
+
+
+
+
+        document.body.appendChild(
+
+            panel
+
+        );
+
+
+
+    };
+
+
+
+
+
+
+
+
+
+    // ============================================
+    // TEST BOTS
+    // ============================================
+
+
+    testButton.onclick = async()=>{
+
+
+
+        const location =
+
+            getState(
+
+                "location"
+
+            );
+
+
+
+
+        if(!location){
+
+
+            alert(
+
+                "Сначала нажми 📍"
+
+            );
+
+
+            return;
+
+
+        }
+
+
+
+
+
+        try{
+
+
+            await createTestBots(
+
+                location.latitude,
+
+                location.longitude
+
+            );
+
+
+
+            alert(
+
+                "🤖 Боты созданы"
+
+            );
+
+
+
+            await loadNearbyUsers();
+
+
+
+        }
+
+
+
+        catch(error){
+
+
+            console.error(
+
+                "Bots error",
+
+                error
+
+            );
+
+
+        }
+
+
+
+    };
+
+
+
+
 
 
 
@@ -646,6 +852,7 @@ export function createMapScreen(){
     // ============================================
     // CLEANUP
     // ============================================
+
 
     screen.addEventListener(
 
@@ -673,6 +880,9 @@ export function createMapScreen(){
 
 
 
+
+
     return screen;
+
 
 }

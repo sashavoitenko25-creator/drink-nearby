@@ -1670,3 +1670,45 @@
 
 
 }
+
+.map-test-button{
+
+
+    width:58px;
+
+    height:58px;
+
+
+    border-radius:50%;
+
+
+    border:none;
+
+
+    background:
+
+        linear-gradient(
+
+            135deg,
+
+            #a855f7,
+
+            #7e22ce
+
+        );
+
+
+    color:white;
+
+
+    font-size:24px;
+
+
+    box-shadow:
+
+        0 10px 30px
+
+        rgba(0,0,0,.4);
+
+
+}
