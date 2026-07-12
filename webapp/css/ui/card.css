@@ -1,13 +1,186 @@
+/* ==========================================
+   CARDS
+========================================== */
+
+
 .card{
 
-    background:white;
 
-    border-radius:22px;
+    background:
 
-    padding:22px;
+        rgba(23,28,38,.95);
 
-    margin-bottom:20px;
 
-    box-shadow:0 10px 30px rgba(0,0,0,.05);
+    border:
+
+        1px solid
+
+        rgba(255,255,255,.08);
+
+
+
+    border-radius:
+
+        24px;
+
+
+
+    padding:
+
+        20px;
+
+
+
+    color:white;
+
+
+
+    box-shadow:
+
+        0 20px 50px
+
+        rgba(0,0,0,.35);
+
+
+
+    backdrop-filter:
+
+        blur(20px);
+
+
+
+}
+
+
+
+/* ==========================================
+   CARD HEADER
+========================================== */
+
+
+.card-title{
+
+
+    font-size:20px;
+
+
+    font-weight:800;
+
+
+    margin-bottom:10px;
+
+
+}
+
+
+
+.card-subtitle{
+
+
+    color:
+
+        var(--text-secondary);
+
+
+    font-size:14px;
+
+
+}
+
+
+
+
+/* ==========================================
+   LIST CARDS
+========================================== */
+
+
+.card-item{
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    gap:14px;
+
+
+
+    padding:14px;
+
+
+
+    border-radius:18px;
+
+
+
+    background:
+
+        rgba(255,255,255,.05);
+
+
+
+    margin-bottom:10px;
+
+
+}
+
+
+
+.card-item:hover{
+
+
+    background:
+
+        rgba(255,255,255,.09);
+
+
+}
+
+
+
+/* ==========================================
+   GLASS PANEL
+========================================== */
+
+
+.glass{
+
+
+    background:
+
+        rgba(17,21,29,.85);
+
+
+
+    backdrop-filter:
+
+        blur(25px);
+
+
+
+    border:
+
+        1px solid
+
+        rgba(255,255,255,.08);
+
+
+
+    border-radius:
+
+        26px;
+
+
+
+    box-shadow:
+
+        0 15px 40px
+
+        rgba(0,0,0,.4);
+
+
 
 }
