@@ -1,74 +1,9 @@
-html,
-body{
+@import "./base/reset.css";
+@import "./base/variables.css";
+@import "./base/typography.css";
+@import "./base/animations.css";
+@import "./components/marker.css";
 
-    width:100%;
+@import "./ui/button.css";
 
-    height:100%;
-
-    margin:0;
-
-    padding:0;
-
-    overflow:hidden;
-
-    background:var(--bg);
-
-    color:var(--text);
-
-    font-family:var(--font);
-
-}
-
-
-
-*{
-
-    box-sizing:border-box;
-
-}
-
-
-
-button{
-
-    font-family:inherit;
-
-    cursor:pointer;
-
-    transition:.25s ease;
-
-}
-
-
-
-button:active{
-
-    transform:scale(.96);
-
-}
-
-
-
-img{
-
-    max-width:100%;
-
-}
-
-
-
-#screen{
-
-    position:fixed;
-
-    inset:0;
-
-}
-
-
-
-::-webkit-scrollbar{
-
-    display:none;
-
-}
+@import "./screens/map.css";

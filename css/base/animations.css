@@ -1,0 +1,109 @@
+/* ==========================================
+   ANIMATIONS
+========================================== */
+
+@keyframes fade{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+
+
+@keyframes appear{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(18px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:none;
+
+    }
+
+}
+
+
+
+@keyframes pulse{
+
+    0%{
+
+        transform:scale(.9);
+
+        opacity:.55;
+
+    }
+
+    70%{
+
+        transform:scale(1.5);
+
+        opacity:0;
+
+    }
+
+    100%{
+
+        opacity:0;
+
+    }
+
+}
+
+
+
+@keyframes floating{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-5px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+
+.fade{
+
+    animation:fade .25s ease;
+
+}
+
+
+
+.appear{
+
+    animation:appear .25s ease;
+
+}

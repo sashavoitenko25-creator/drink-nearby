@@ -1,0 +1,113 @@
+/* ==========================================
+   DESIGN SYSTEM
+========================================== */
+
+:root{
+
+    /* Background */
+
+    --bg:#0f1115;
+
+    --surface:#181c23;
+
+    --surface-2:#202632;
+
+    --surface-3:#2a3343;
+
+
+
+    /* Brand */
+
+    --primary:#4f8cff;
+
+    --primary-hover:#3b7dff;
+
+    --primary-light:#82b1ff;
+
+
+
+    /* Status */
+
+    --success:#22c55e;
+
+    --warning:#f59e0b;
+
+    --danger:#ef4444;
+
+
+
+    /* Text */
+
+    --text:#ffffff;
+
+    --text-secondary:#c7ced9;
+
+    --text-muted:#9099aa;
+
+
+
+    /* Borders */
+
+    --border:rgba(255,255,255,.08);
+
+    --border-light:rgba(255,255,255,.14);
+
+
+
+    /* Glass */
+
+    --glass:rgba(24,28,35,.88);
+
+    --glass-light:rgba(255,255,255,.06);
+
+
+
+    /* Radius */
+
+    --radius-xs:10px;
+
+    --radius-sm:14px;
+
+    --radius:20px;
+
+    --radius-lg:28px;
+
+    --radius-xl:36px;
+
+    --radius-round:999px;
+
+
+
+    /* Shadow */
+
+    --shadow-sm:
+
+        0 4px 10px rgba(0,0,0,.15);
+
+    --shadow:
+
+        0 10px 28px rgba(0,0,0,.28);
+
+    --shadow-lg:
+
+        0 24px 60px rgba(0,0,0,.45);
+
+
+
+    /* Blur */
+
+    --blur:blur(20px);
+
+
+
+    /* Header */
+
+    --header-height:64px;
+
+
+
+    /* Floating Buttons */
+
+    --floating-size:60px;
+
+}

@@ -1,10 +1,11 @@
 // ============================================
-// USER MARKERS
+// LIVE USER MARKERS
 // ============================================
 
 import {
     createUserCard
 } from "./components/userCard.js";
+
 
 
 let markers = [];
@@ -14,96 +15,62 @@ let activeCard = null;
 
 
 // ============================================
-// CUSTOM ICON
+// CREATE ICON
 // ============================================
 
 function createUserIcon(user){
 
-
-    let emoji = "💬";
-
-    let color = "blue";
-
-
+    let markerClass = "marker-talk";
 
     if(user.activity_type){
 
-
         if(user.activity_type.includes("🍻")){
 
-            emoji = "🍻";
-
-            color = "red";
+            markerClass = "marker-drink";
 
         }
 
+        else if(user.activity_type.includes("☕")){
 
-        else if(
-            user.activity_type.includes("☕")
-        ){
-
-            emoji = "☕";
-
-            color = "brown";
+            markerClass = "marker-coffee";
 
         }
 
+        else if(user.activity_type.includes("🚶")){
 
-        else if(
-            user.activity_type.includes("🚶")
-        ){
-
-            emoji = "🚶";
-
-            color = "green";
+            markerClass = "marker-walk";
 
         }
-
-
-        else{
-
-            emoji = "💬";
-
-            color = "blue";
-
-        }
-
 
     }
 
 
 
-    let distance = "";
-
-
-
-    if(user.distance !== undefined){
-
-
-        distance =
-
-        user.distance < 1000
+    const avatar = user.avatar
 
         ?
 
-        `${user.distance} м`
+        `<img src="${user.avatar}" alt="">`
 
         :
 
-        `${
+        `<span>${getInitials(user)}</span>`;
 
-            Math.round(
 
-                user.distance / 100
 
-            )
+    let distance = "";
 
-            /
+    if(user.distance !== undefined){
 
-            10
+        distance = user.distance < 1000
 
-        } км`;
+            ?
 
+            `${Math.round(user.distance)} м`
+
+            :
+
+            `${Math.round(user.distance / 100) / 10} км`;
 
     }
 
@@ -111,112 +78,92 @@ function createUserIcon(user){
 
     return L.divIcon({
 
-        className:
-
-            "user-map-marker",
-
-
+        className:"user-map-marker",
 
         html:`
 
+            <div class="marker ${markerClass}">
 
-            <div class="marker-pulse ${color}">
+                <div class="marker-pulse">
 
+                    <div class="marker-avatar">
 
-                <div class="marker-icon">
+                        ${avatar}
 
-                    ${emoji}
+                        <div class="marker-online"></div>
+
+                    </div>
 
                 </div>
 
+                <div class="marker-name">
 
-            </div>
+                    ${user.first_name ?? "User"}
 
-
-
-            <div class="marker-name">
+                </div>
 
                 ${
-                    user.first_name
-                    ??
-                    "User"
+                    distance
+
+                    ?
+
+                    `
+
+                    <div class="marker-distance">
+
+                        📍 ${distance}
+
+                    </div>
+
+                    `
+
+                    :
+
+                    ""
+
                 }
 
             </div>
 
-
-
-            ${
-                distance
-
-                ?
-
-                `
-
-                <div class="marker-distance">
-
-                    ${distance}
-
-                </div>
-
-                `
-
-                :
-
-                ""
-
-            }
-
-
         `,
 
+        iconSize:[90,120],
 
-
-        iconSize:[
-
-            80,
-
-            90
-
-        ],
-
-
-
-        iconAnchor:[
-
-            40,
-
-            45
-
-        ]
+        iconAnchor:[45,60]
 
     });
-
 
 }
 
 
 
 // ============================================
-// CLEAR MARKERS
+// INITIALS
+// ============================================
+
+function getInitials(user){
+
+    if(user.first_name){
+
+        return user.first_name.charAt(0).toUpperCase();
+
+    }
+
+    return "👤";
+
+}
+
+
+
+// ============================================
+// CLEAR
 // ============================================
 
 export function clearMarkers(){
 
+    markers.forEach(marker=>marker.remove());
 
-    markers.forEach(marker=>{
-
-
-        marker.remove();
-
-
-    });
-
-
-
-    markers = [];
-
-
+    markers=[];
 
 }
 
@@ -226,67 +173,44 @@ export function clearMarkers(){
 // CLOSE CARD
 // ============================================
 
-function closeUserCard(){
-
+function closeCard(){
 
     if(activeCard){
 
-
         activeCard.remove();
 
-
-        activeCard = null;
-
+        activeCard=null;
 
     }
 
-
 }
 
 
 
 // ============================================
-// SHOW USER CARD
+// SHOW CARD
 // ============================================
 
-function showUserCard(
+function showCard(user,map){
 
-    user,
+    closeCard();
 
-    map
+    activeCard=createUserCard(
 
-){
+        user,
 
-
-    closeUserCard();
-
-
-
-    activeCard =
-
-        createUserCard(
-
-            user,
-
-            map
-
-        );
-
-
-
-    document.body.appendChild(
-
-        activeCard
+        map
 
     );
 
+    document.body.appendChild(activeCard);
 
 }
 
 
 
 // ============================================
-// ADD USER MARKERS
+// ADD
 // ============================================
 
 export function addUserMarkers(
@@ -297,35 +221,27 @@ export function addUserMarkers(
 
 ){
 
-
     clearMarkers();
-
-
 
     users.forEach(user=>{
 
+        const marker=L.marker(
 
-        const marker =
+            [
 
-            L.marker(
+                user.latitude,
 
-                [
+                user.longitude
 
-                    user.latitude,
+            ],
 
-                    user.longitude
+            {
 
-                ],
+                icon:createUserIcon(user)
 
-                {
+            }
 
-                    icon:
-
-                        createUserIcon(user)
-
-                }
-
-            );
+        );
 
 
 
@@ -339,8 +255,7 @@ export function addUserMarkers(
 
             ()=>{
 
-
-                showUserCard(
+                showCard(
 
                     user,
 
@@ -348,22 +263,14 @@ export function addUserMarkers(
 
                 );
 
-
             }
 
         );
 
 
 
-        markers.push(
-
-            marker
-
-        );
-
-
+        markers.push(marker);
 
     });
-
 
 }
