@@ -1,7 +1,6 @@
 // ============================================
-// ROUTE INFO
+// ROUTE INFO 2.0
 // ============================================
-
 
 import {
     clearRoute
@@ -9,129 +8,148 @@ import {
 
 
 
-export function showRouteInfo(data){
-
-
-    let old =
-        document.querySelector(
-
-            ".route-info"
-
-        );
+let currentPanel = null;
 
 
 
-    if(old){
+// ============================================
+// SHOW
+// ============================================
 
-        old.remove();
+export function showRouteInfo(route){
+
+    if(currentPanel){
+
+        currentPanel.remove();
 
     }
 
+    const panel = document.createElement("div");
 
-
-    const box =
-        document.createElement("div");
-
-
-    box.className =
-        "route-info";
+    panel.className = "route-info";
 
 
 
-    box.innerHTML = `
+    panel.innerHTML = `
+
+        <button class="route-close">
+
+            ✕
+
+        </button>
 
 
-        <div class="route-header">
 
-            🗺 Маршрут готов
+        <div class="route-info-title">
 
-
-            <button class="route-close">
-
-                ✕
-
-            </button>
-
+            🧭 Маршрут построен
 
         </div>
 
 
 
-        <div>
+        <div class="route-info-distance">
 
-            📍 ${formatDistance(data.distance)}
+            📍 ${formatDistance(route.distance)}
+
+        </div>
+
+
+
+        <div class="route-info-time">
+
+            🚶 ${formatTime(route.duration)}
 
         </div>
 
 
 
-        <div>
+        <div class="route-divider"></div>
 
-            ⏱ ${data.duration} минут
+
+
+        <div class="route-info-text">
+
+            Следуйте по синей линии на карте
 
         </div>
-
 
     `;
 
 
 
-    document.body.appendChild(
+    panel
+        .querySelector(".route-close")
+        .onclick = ()=>{
 
-        box
+            clearRoute();
 
-    );
+            panel.remove();
 
+            currentPanel = null;
 
-
-    box.querySelector(
-
-        ".route-close"
-
-    )
-    .onclick = ()=>{
+        };
 
 
-        clearRoute();
+
+    document.body.appendChild(panel);
 
 
-        box.remove();
 
-
-    };
-
+    currentPanel = panel;
 
 }
 
 
 
+// ============================================
+// DISTANCE
+// ============================================
 
-function formatDistance(meters){
+function formatDistance(distance){
 
+    if(distance < 1000){
 
-    if(meters < 1000){
-
-        return meters + " м";
+        return Math.round(distance) + " м";
 
     }
 
-
-
     return (
 
-        Math.round(
-
-            meters / 100
-
-        )
+        Math.round(distance / 100)
 
         /
 
         10
 
-    )
-    +
-    " км";
+    ) + " км";
 
+}
+
+
+
+// ============================================
+// TIME
+// ============================================
+
+function formatTime(seconds){
+
+    const minutes =
+
+        Math.max(
+
+            1,
+
+            Math.round(
+
+                seconds / 60
+
+            )
+
+        );
+
+
+
+    return `${minutes} мин`;
 
 }
