@@ -6,9 +6,176 @@
 export function createActivePanel(onStart){
 
 
-    const panel = document.createElement("div");
+    const overlay =
+        document.createElement("div");
 
-    panel.className = "active-panel";
+
+    overlay.className =
+        "active-overlay";
+
+
+
+    const panel =
+        document.createElement("div");
+
+
+    panel.className =
+        "active-panel";
+
+
+
+    panel.innerHTML = `
+
+
+        <div class="active-title">
+
+            🟢 Стать видимым
+
+        </div>
+
+
+
+        <div class="active-subtitle">
+
+            Люди рядом увидят тебя на карте
+
+        </div>
+
+
+
+
+        <div class="active-section">
+
+
+            <div class="active-label">
+
+                На сколько времени?
+
+            </div>
+
+
+
+            <div class="active-times">
+
+
+                <button data-time="15">
+
+                    15 мин
+
+                </button>
+
+
+
+                <button data-time="30">
+
+                    30 мин
+
+                </button>
+
+
+
+                <button 
+                    data-time="60"
+                    class="selected"
+                >
+
+                    1 час
+
+                </button>
+
+
+
+                <button data-time="120">
+
+                    2 часа
+
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+        <div class="active-section">
+
+
+            <div class="active-label">
+
+                Что хочешь?
+
+            </div>
+
+
+
+            <div class="active-types">
+
+
+                <button data-type="🍻 Drink">
+
+                    🍻 Выпить
+
+                </button>
+
+
+
+                <button data-type="☕ Coffee">
+
+                    ☕ Кофе
+
+                </button>
+
+
+
+                <button data-type="💬 Talk">
+
+                    💬 Общение
+
+                </button>
+
+
+
+                <button data-type="🚶 Walk">
+
+                    🚶 Прогулка
+
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+        <button class="active-start">
+
+            🟢 Показать меня на карте
+
+        </button>
+
+
+
+
+        <button class="active-close">
+
+            Отмена
+
+        </button>
+
+
+    `;
+
+
+
+    overlay.appendChild(panel);
+
 
 
     let minutes = 60;
@@ -16,103 +183,45 @@ export function createActivePanel(onStart){
     let activity = "🍻 Drink";
 
 
-    panel.innerHTML = `
 
-        <div class="active-title">
-
-            🟢 Выйти на карту
-
-        </div>
+    // ============================================
+    // TIME
+    // ============================================
 
 
-        <div class="active-label">
-
-            На сколько?
-
-        </div>
-
-
-        <div class="active-times">
-
-            <button data-time="15">
-                15 мин
-            </button>
-
-            <button data-time="30">
-                30 мин
-            </button>
-
-            <button data-time="60" class="active-selected">
-                1 час
-            </button>
-
-            <button data-time="120">
-                2 часа
-            </button>
-
-        </div>
-
-
-        <div class="active-label">
-
-            Что хочешь?
-
-        </div>
-
-
-        <div class="active-types">
-
-            <button data-type="🍻 Drink">
-                🍻
-            </button>
-
-            <button data-type="☕ Coffee">
-                ☕
-            </button>
-
-            <button data-type="💬 Talk">
-                💬
-            </button>
-
-            <button data-type="🚶 Walk">
-                🚶
-            </button>
-
-        </div>
-
-
-        <button class="active-start">
-
-            Начать
-
-        </button>
-
-    `;
-
-
-
-    panel.querySelectorAll("[data-time]")
+    panel
+    .querySelectorAll("[data-time]")
     .forEach(button=>{
 
 
         button.onclick = ()=>{
 
 
-            minutes =
-                Number(button.dataset.time);
+            panel
+            .querySelectorAll("[data-time]")
+            .forEach(btn=>{
 
+                btn.classList.remove(
+                    "selected"
+                );
 
-            panel.querySelectorAll("[data-time]")
-            .forEach(b=>
-                b.classList.remove(
-                    "active-selected"
-                )
-            );
+            });
+
 
 
             button.classList.add(
-                "active-selected"
+                "selected"
             );
+
+
+
+            minutes =
+
+                Number(
+
+                    button.dataset.time
+
+                );
 
 
         };
@@ -122,14 +231,43 @@ export function createActivePanel(onStart){
 
 
 
-    panel.querySelectorAll("[data-type]")
+
+
+    // ============================================
+    // TYPE
+    // ============================================
+
+
+    panel
+    .querySelectorAll("[data-type]")
     .forEach(button=>{
 
 
         button.onclick = ()=>{
 
 
+            panel
+            .querySelectorAll("[data-type]")
+            .forEach(btn=>{
+
+
+                btn.classList.remove(
+                    "selected"
+                );
+
+
+            });
+
+
+
+            button.classList.add(
+                "selected"
+            );
+
+
+
             activity =
+
                 button.dataset.type;
 
 
@@ -140,9 +278,16 @@ export function createActivePanel(onStart){
 
 
 
-    panel.querySelector(
-        ".active-start"
-    )
+
+
+
+    // ============================================
+    // START
+    // ============================================
+
+
+    panel
+    .querySelector(".active-start")
     .onclick = ()=>{
 
 
@@ -159,6 +304,27 @@ export function createActivePanel(onStart){
 
 
 
-    return panel;
+
+
+    // ============================================
+    // CLOSE
+    // ============================================
+
+
+    panel
+    .querySelector(".active-close")
+    .onclick = ()=>{
+
+
+        overlay.remove();
+
+
+    };
+
+
+
+
+    return overlay;
+
 
 }
