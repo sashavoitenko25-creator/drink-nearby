@@ -1,25 +1,54 @@
 /**
+ * ============================================================
  * Компанько
  * Telegram Service
+ * ============================================================
+ *
+ * Работа с Telegram Mini App API
+ *
+ * Получает:
+ * - Telegram ID
+ * - имя
+ * - фото
+ *
+ * Username нигде не используется
+ * ============================================================
  */
+
 
 class TelegramService {
 
 
     constructor(){
 
-        this.tg = window.Telegram?.WebApp || null;
+
+        this.tg = null;
+
+
+        if(
+            window.Telegram &&
+            window.Telegram.WebApp
+        ){
+
+            this.tg = window.Telegram.WebApp;
+
+        }
+
 
     }
 
 
 
+
+
+
     init(){
+
 
         if(!this.tg){
 
             console.warn(
-                "Telegram WebApp API not found"
+                '[TelegramService] Telegram API not found'
             );
 
             return;
@@ -27,9 +56,17 @@ class TelegramService {
         }
 
 
+
         this.tg.ready();
 
+
         this.tg.expand();
+
+
+        console.log(
+            '[TelegramService] initialized'
+        );
+
 
     }
 
@@ -37,7 +74,10 @@ class TelegramService {
 
 
 
+
+
     getUser(){
+
 
         if(!this.tg){
 
@@ -46,29 +86,24 @@ class TelegramService {
         }
 
 
-        return this.tg.initDataUnsafe?.user || null;
 
-    }
+        if(
+            this.tg.initDataUnsafe &&
+            this.tg.initDataUnsafe.user
+        ){
 
-
-
-
-
-    getPhoto(){
-
-        const user = this.getUser();
-
-
-        if(!user){
-
-            return null;
+            return this.tg.initDataUnsafe.user;
 
         }
 
 
-        return user.photo_url || null;
+
+        return null;
+
 
     }
+
+
 
 
 
@@ -76,16 +111,82 @@ class TelegramService {
 
     getId(){
 
+
         const user = this.getUser();
 
 
-        return user?.id || null;
+
+        if(user){
+
+            return user.id;
+
+        }
+
+
+
+        return null;
+
+
+    }
+
+
+
+
+
+
+
+    getName(){
+
+
+        const user = this.getUser();
+
+
+
+        if(user){
+
+            return user.first_name || '';
+
+        }
+
+
+
+        return '';
+
+    }
+
+
+
+
+
+
+
+    getPhoto(){
+
+
+        const user = this.getUser();
+
+
+
+        if(
+            user &&
+            user.photo_url
+        ){
+
+            return user.photo_url;
+
+        }
+
+
+
+        return null;
+
 
     }
 
 
 
 }
+
 
 
 export default new TelegramService();

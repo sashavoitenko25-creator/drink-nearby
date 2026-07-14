@@ -1,96 +1,82 @@
 <!DOCTYPE html>
+
 <html lang="ru">
 
 <head>
 
-    <meta charset="UTF-8">
+
+<meta charset="UTF-8">
 
 
-    <meta 
-        name="viewport" 
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    >
-
-
-    <title>Компанько</title>
-
-
-
-    <!-- Telegram Mini App -->
-
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+<meta 
+name="viewport"
+content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+/>
 
 
 
-    <!-- Leaflet -->
-
-    <link
-        rel="stylesheet"
-        href="https://unpkg.com/leaflet/dist/leaflet.css"
-    >
+<title>Компанько</title>
 
 
-    <script
-        src="https://unpkg.com/leaflet/dist/leaflet.js">
-    </script>
+
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+
+
+<link 
+rel="stylesheet"
+href="https://unpkg.com/leaflet/dist/leaflet.css"
+/>
+
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
 
 
 
 
-    <!-- GLOBAL -->
+<link rel="stylesheet" href="./css/reset.css">
 
-    <link rel="stylesheet" href="./css/reset.css">
-
-    <link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/style.css">
 
 
 
+<link rel="stylesheet" href="./css/components/Header.css">
+
+<link rel="stylesheet" href="./css/components/Greeting.css">
+
+<link rel="stylesheet" href="./css/components/Logo.css">
+
+<link rel="stylesheet" href="./css/components/Population.css">
+
+<link rel="stylesheet" href="./css/components/ProfileButton.css">
+
+<link rel="stylesheet" href="./css/components/OnlineStatus.css">
+
+<link rel="stylesheet" href="./css/components/ActivityBar.css">
+
+<link rel="stylesheet" href="./css/components/TopBar.css">
+
+<link rel="stylesheet" href="./css/components/Map.css">
+
+<link rel="stylesheet" href="./css/components/MapView.css">
+
+<link rel="stylesheet" href="./css/components/MyLocation.css">
+
+<link rel="stylesheet" href="./css/components/UserMarker.css">
+
+<link rel="stylesheet" href="./css/components/LiveButton.css">
+
+<link rel="stylesheet" href="./css/components/ProfileCard.css">
+
+<link rel="stylesheet" href="./css/components/BottomPanel.css">
+
+<link rel="stylesheet" href="./css/components/LiveSheet.css">
 
 
-    <!-- COMPONENTS -->
+<link rel="stylesheet" href="./css/screens/Home/HomeScreen.css">
 
-    <link rel="stylesheet" href="./css/components/Header.css">
-
-    <link rel="stylesheet" href="./css/components/Greeting.css">
-
-    <link rel="stylesheet" href="./css/components/Logo.css">
-
-    <link rel="stylesheet" href="./css/components/Population.css">
-
-    <link rel="stylesheet" href="./css/components/ProfileButton.css">
-
-    <link rel="stylesheet" href="./css/components/OnlineStatus.css">
-
-    <link rel="stylesheet" href="./css/components/ActivityBar.css">
-
-    <link rel="stylesheet" href="./css/components/TopBar.css">
-
-    <link rel="stylesheet" href="./css/components/Map.css">
-
-    <link rel="stylesheet" href="./css/components/MapView.css">
-
-    <link rel="stylesheet" href="./css/components/MyLocation.css">
-
-    <link rel="stylesheet" href="./css/components/UserMarker.css">
-
-    <link rel="stylesheet" href="./css/components/LiveButton.css">
-
-    <link rel="stylesheet" href="./css/components/ProfileCard.css">
-
-    <link rel="stylesheet" href="./css/components/BottomPanel.css">
-
-    <link rel="stylesheet" href="./css/components/LiveSheet.css">
-
-
-
-
-
-    <!-- SCREENS -->
-
-    <link rel="stylesheet" href="./css/screens/Home/HomeScreen.css">
-
-    <link rel="stylesheet" href="./css/screens/Onboarding/Onboarding.css">
+<link rel="stylesheet" href="./css/screens/Onboarding/Onboarding.css">
 
 
 
@@ -98,39 +84,15 @@
 
 
 
-
 <body>
+
 
 
 <div id="app"></div>
 
 
 
-
-
-<script>
-
-    // Telegram initialization
-
-    if(window.Telegram && window.Telegram.WebApp){
-
-        Telegram.WebApp.ready();
-
-        Telegram.WebApp.expand();
-
-    }
-
-
-</script>
-
-
-
-
-
-<script
-    type="module"
-    src="./app.js">
-</script>
+<script type="module" src="./app.js"></script>
 
 
 
