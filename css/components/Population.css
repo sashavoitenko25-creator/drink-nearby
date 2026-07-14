@@ -1,0 +1,79 @@
+/* ==========================================================
+   Компанько
+   Population
+========================================================== */
+
+.population {
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    gap: 4px;
+
+}
+
+.population__label {
+
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    color: var(--color-text-secondary);
+
+}
+
+.population__dot {
+
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #34C759;
+
+    box-shadow: 0 0 10px rgba(52,199,89,.7);
+
+    animation: populationPulse 2s infinite;
+
+}
+
+.population__value {
+
+    font-size: 20px;
+    font-weight: 700;
+
+    color: var(--color-text);
+
+    letter-spacing: -.02em;
+
+}
+
+@keyframes populationPulse {
+
+    0% {
+
+        transform: scale(1);
+        opacity: 1;
+
+    }
+
+    50% {
+
+        transform: scale(1.35);
+        opacity: .65;
+
+    }
+
+    100% {
+
+        transform: scale(1);
+        opacity: 1;
+
+    }
+
+}

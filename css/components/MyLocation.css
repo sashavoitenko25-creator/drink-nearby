@@ -1,0 +1,170 @@
+.my-location-marker {
+
+    background:none;
+
+    border:none;
+
+}
+
+
+
+.location-dot {
+
+
+    position:absolute;
+
+    width:24px;
+
+    height:24px;
+
+    background:#2f80ff;
+
+    border-radius:50%;
+
+    left:18px;
+
+    top:18px;
+
+    box-shadow:
+
+        0 0 15px #2f80ff,
+
+        0 0 35px #2f80ff;
+
+
+}
+
+
+
+.location-core {
+
+
+    width:10px;
+
+    height:10px;
+
+    background:white;
+
+    border-radius:50%;
+
+    position:absolute;
+
+    left:7px;
+
+    top:7px;
+
+
+}
+
+
+
+
+.location-ring {
+
+
+    position:absolute;
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    left:7px;
+
+    top:7px;
+
+    border:
+
+    2px solid rgba(47,128,255,.5);
+
+
+    animation:
+
+    location-ring 2s infinite;
+
+
+}
+
+
+
+.location-pulse {
+
+
+    position:absolute;
+
+    width:60px;
+
+    height:60px;
+
+    left:0;
+
+    top:0;
+
+    border-radius:50%;
+
+    background:
+
+    rgba(47,128,255,.25);
+
+
+    animation:
+
+    location-pulse 2s infinite;
+
+
+}
+
+
+
+@keyframes location-pulse {
+
+
+    0% {
+
+        transform:scale(.4);
+
+        opacity:.8;
+
+    }
+
+
+    100% {
+
+
+        transform:scale(1.5);
+
+        opacity:0;
+
+    }
+
+
+}
+
+
+
+
+
+@keyframes location-ring {
+
+
+    0% {
+
+        transform:scale(.8);
+
+        opacity:1;
+
+    }
+
+
+    100% {
+
+
+        transform:scale(1.4);
+
+        opacity:0;
+
+    }
+
+
+}

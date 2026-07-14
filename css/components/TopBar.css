@@ -1,0 +1,66 @@
+.top-bar{
+
+    position:absolute;
+
+    top:18px;
+
+    left:16px;
+
+    right:16px;
+
+    height:56px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:0 16px;
+
+    border-radius:20px;
+
+    background:rgba(22,28,45,.65);
+
+    backdrop-filter:blur(20px);
+
+    -webkit-backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    z-index:1000;
+
+}
+
+.top-bar__logo{
+
+    color:#fff;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    letter-spacing:.4px;
+
+}
+
+.top-bar__menu,
+.top-bar__profile{
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:rgba(255,255,255,.08);
+
+    color:#fff;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+}

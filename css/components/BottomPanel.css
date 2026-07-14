@@ -1,0 +1,45 @@
+/**
+ * ============================================================
+ * Компанько
+ * Bottom Panel
+ * ============================================================
+ */
+
+
+.home-screen__bottom {
+
+    position: absolute;
+
+    left: 0;
+
+    right: 0;
+
+    bottom: 0;
+
+
+    padding: 16px;
+
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+
+    z-index: 1000;
+
+
+    pointer-events: none;
+
+}
+
+
+
+
+
+.home-screen__bottom > * {
+
+    pointer-events: auto;
+
+}
