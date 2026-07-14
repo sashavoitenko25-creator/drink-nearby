@@ -1,0 +1,86 @@
+.activity-bar{
+
+    position:absolute;
+
+    top:76px;
+    left:20px;
+    right:20px;
+
+    display:flex;
+    gap:10px;
+
+    z-index:2500;
+
+    overflow-x:auto;
+    overflow-y:hidden;
+
+    scrollbar-width:none;
+}
+
+.activity-bar::-webkit-scrollbar{
+    display:none;
+}
+
+.activity-item{
+
+    flex:0 0 auto;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:8px;
+
+    height:42px;
+
+    padding:0 18px;
+
+    border-radius:16px;
+
+    color:#ffffff;
+
+    font-size:15px;
+    font-weight:600;
+
+    cursor:pointer;
+
+    white-space:nowrap;
+
+    background:rgba(20,24,40,.72);
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.06);
+
+    transition:.25s;
+}
+
+.activity-item:hover{
+
+    transform:translateY(-2px);
+
+    background:rgba(40,45,70,.95);
+
+}
+
+.activity-item.active{
+
+    color:white;
+
+    background:linear-gradient(
+        135deg,
+        #7A5CFF,
+        #C04BFF
+    );
+
+    box-shadow:
+        0 0 20px rgba(166,83,255,.45);
+
+}
+
+.activity-item .emoji{
+
+    font-size:18px;
+
+}

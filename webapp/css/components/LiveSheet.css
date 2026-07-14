@@ -1,0 +1,205 @@
+/* ==========================================================
+   LIVE SHEET
+========================================================== */
+
+.live-sheet{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:9999;
+
+    pointer-events:none;
+
+}
+
+.live-sheet__backdrop{
+
+    position:absolute;
+
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+
+    opacity:0;
+
+    transition:.25s;
+
+}
+
+.live-sheet__panel{
+
+    position:absolute;
+
+    left:0;
+
+    right:0;
+
+    bottom:0;
+
+    background:#121826;
+
+    border-radius:28px 28px 0 0;
+
+    padding:18px 20px calc(20px + env(safe-area-inset-bottom));
+
+    transform:translateY(100%);
+
+    transition:.3s;
+
+    box-shadow:0 -10px 40px rgba(0,0,0,.35);
+
+}
+
+.live-sheet.open{
+
+    pointer-events:auto;
+
+}
+
+.live-sheet.open .live-sheet__backdrop{
+
+    opacity:1;
+
+}
+
+.live-sheet.open .live-sheet__panel{
+
+    transform:translateY(0);
+
+}
+
+.live-sheet__handle{
+
+    width:48px;
+
+    height:5px;
+
+    border-radius:999px;
+
+    background:#444D61;
+
+    margin:0 auto 18px;
+
+}
+
+.live-sheet__title{
+
+    color:#fff;
+
+    font-size:22px;
+
+    font-weight:700;
+
+    text-align:center;
+
+    margin-bottom:22px;
+
+}
+
+.live-sheet__categories{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+    margin-bottom:24px;
+
+}
+
+.live-sheet__categories button{
+
+    height:54px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:#1B2332;
+
+    color:#fff;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.live-sheet__categories button.active{
+
+    background:#7A5CFF;
+
+}
+
+.live-sheet__times{
+
+    display:flex;
+
+    gap:12px;
+
+    margin-bottom:28px;
+
+}
+
+.live-sheet__times button{
+
+    flex:1;
+
+    height:48px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#1B2332;
+
+    color:#fff;
+
+    font-size:15px;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.live-sheet__times button.active{
+
+    background:#7A5CFF;
+
+}
+
+.live-sheet__start{
+
+    width:100%;
+
+    height:58px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:#7A5CFF;
+
+    color:#fff;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.live-sheet__start:hover{
+
+    opacity:.95;
+
+}

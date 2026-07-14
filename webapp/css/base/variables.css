@@ -1,113 +1,205 @@
-/* ==========================================
-   DESIGN SYSTEM
-========================================== */
+/* ==========================================================
+   Компанько
+   Design System
+   ----------------------------------------------------------
+   Единый источник всех дизайн-токенов проекта.
+   Запрещено использовать "магические" значения
+   в остальных CSS-файлах.
+========================================================== */
+
+:root {
+
+    /* ======================================================
+       Safe Area
+    ====================================================== */
+
+    --safe-top: env(safe-area-inset-top);
+    --safe-right: env(safe-area-inset-right);
+    --safe-bottom: env(safe-area-inset-bottom);
+    --safe-left: env(safe-area-inset-left);
+
+    /* ======================================================
+       Colors
+    ====================================================== */
+
+    --color-primary: #4EA8FF;
+    --color-primary-hover: #69B7FF;
+
+    --color-success: #30D158;
+    --color-warning: #FFD60A;
+    --color-danger: #FF453A;
+
+    --color-background: #0B0B0F;
+    --color-surface: #18181D;
+    --color-surface-secondary: #222228;
+
+    --color-text: #FFFFFF;
+    --color-text-secondary: #B4B4BC;
+    --color-text-muted: #7C7C86;
+
+    --color-border: rgba(255,255,255,.08);
+
+    /* ======================================================
+       Glass
+    ====================================================== */
+
+    --glass-background: rgba(255,255,255,.08);
+    --glass-border: rgba(255,255,255,.12);
+
+    --glass-blur: 24px;
+
+    /* ======================================================
+       Radius
+    ====================================================== */
+
+    --radius-xs: 10px;
+    --radius-sm: 16px;
+    --radius-md: 22px;
+    --radius-lg: 28px;
+    --radius-xl: 36px;
+    --radius-round: 999px;
+
+    /* ======================================================
+       Shadow
+    ====================================================== */
 
-:root{
+    --shadow-sm: 0 4px 12px rgba(0,0,0,.18);
 
-    /* Background */
+    --shadow-md: 0 12px 30px rgba(0,0,0,.28);
 
-    --bg:#0f1115;
+    --shadow-lg: 0 24px 60px rgba(0,0,0,.40);
 
-    --surface:#181c23;
+    /* ======================================================
+       Spacing
+    ====================================================== */
 
-    --surface-2:#202632;
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 20px;
+    --space-6: 24px;
+    --space-7: 32px;
+    --space-8: 40px;
+    --space-9: 48px;
+    --space-10: 64px;
 
-    --surface-3:#2a3343;
+    /* ======================================================
+       Typography
+    ====================================================== */
 
+    --font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
 
+    --font-size-xs: 12px;
+    --font-size-sm: 14px;
+    --font-size-md: 16px;
+    --font-size-lg: 18px;
+    --font-size-xl: 22px;
+    --font-size-2xl: 28px;
+    --font-size-3xl: 36px;
 
-    /* Brand */
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
 
-    --primary:#4f8cff;
+    --line-height-sm: 1.2;
+    --line-height-md: 1.45;
+    --line-height-lg: 1.6;
 
-    --primary-hover:#3b7dff;
+    /* ======================================================
+       Layout
+    ====================================================== */
 
-    --primary-light:#82b1ff;
+    --header-height: 72px;
 
+    --bottom-sheet-radius: 34px;
 
+    --live-button-size: 88px;
 
-    /* Status */
+    --floating-button-size: 56px;
 
-    --success:#22c55e;
+    --profile-avatar-size: 60px;
 
-    --warning:#f59e0b;
+    --marker-size: 52px;
 
-    --danger:#ef4444;
+    /* ======================================================
+       Layer
+    ====================================================== */
 
+    --z-map: 1;
+    --z-marker: 100;
+    --z-header: 500;
+    --z-floating: 600;
+    --z-bottom-sheet: 900;
+    --z-modal: 1000;
+    --z-toast: 1200;
 
+    /* ======================================================
+       Animation
+    ====================================================== */
 
-    /* Text */
+    --duration-fast: .18s;
+    --duration-normal: .28s;
+    --duration-slow: .45s;
 
-    --text:#ffffff;
+    --ease-default: cubic-bezier(.22,.61,.36,1);
+    --ease-spring: cubic-bezier(.175,.885,.32,1.275);
 
-    --text-secondary:#c7ced9;
+}
 
-    --text-muted:#9099aa;
+/* ==========================================================
+   Light Theme
+========================================================== */
 
+[data-theme="light"] {
 
+    --color-background: #F4F5F7;
 
-    /* Borders */
+    --color-surface: #FFFFFF;
 
-    --border:rgba(255,255,255,.08);
+    --color-surface-secondary: #ECEDEF;
 
-    --border-light:rgba(255,255,255,.14);
+    --color-text: #141414;
 
+    --color-text-secondary: #4E4E57;
 
+    --color-text-muted: #777780;
 
-    /* Glass */
+    --glass-background: rgba(255,255,255,.75);
 
-    --glass:rgba(24,28,35,.88);
+    --glass-border: rgba(255,255,255,.85);
 
-    --glass-light:rgba(255,255,255,.06);
+}
 
+/* ==========================================================
+   Dark Theme
+========================================================== */
 
+[data-theme="dark"] {
 
-    /* Radius */
+    --color-background: #0B0B0F;
 
-    --radius-xs:10px;
+    --color-surface: #18181D;
 
-    --radius-sm:14px;
+    --color-surface-secondary: #222228;
 
-    --radius:20px;
+    --color-text: #FFFFFF;
 
-    --radius-lg:28px;
+    --color-text-secondary: #B4B4BC;
 
-    --radius-xl:36px;
+    --color-text-muted: #7C7C86;
 
-    --radius-round:999px;
+    --glass-background: rgba(255,255,255,.08);
 
-
-
-    /* Shadow */
-
-    --shadow-sm:
-
-        0 4px 10px rgba(0,0,0,.15);
-
-    --shadow:
-
-        0 10px 28px rgba(0,0,0,.28);
-
-    --shadow-lg:
-
-        0 24px 60px rgba(0,0,0,.45);
-
-
-
-    /* Blur */
-
-    --blur:blur(20px);
-
-
-
-    /* Header */
-
-    --header-height:64px;
-
-
-
-    /* Floating Buttons */
-
-    --floating-size:60px;
+    --glass-border: rgba(255,255,255,.12);
 
 }

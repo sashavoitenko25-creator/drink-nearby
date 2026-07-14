@@ -1,83 +1,125 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html lang="ru">
 
 <head>
 
+
     <meta charset="UTF-8">
 
-    <meta
+
+    <meta 
         name="viewport"
-        content="width=device-width, initial-scale=1.0"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     >
 
-    <title>Drink Nearby</title>
 
-    <!-- Telegram -->
+    <meta 
+        name="mobile-web-app-capable"
+        content="yes"
+    >
+
+
+    <meta 
+        name="apple-mobile-web-app-capable"
+        content="yes"
+    >
+
+
+    <title>Компанько</title>
+
+
+
+    <!-- Telegram Mini App -->
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
-    <!-- Supabase -->
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-	
-	<!-- Leaflet -->
+
+    <!-- Leaflet -->
 
     <link
         rel="stylesheet"
-        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    />
-
-    <script
-        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
-    </script>
-
-    <!-- Manifest -->
-
-    <link
-        rel="manifest"
-        href="./manifest.json"
+        href="https://unpkg.com/leaflet/dist/leaflet.css"
     >
 
-    <!-- Base -->
 
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/theme.css">
-    <link rel="stylesheet" href="./css/app.css">
+    <script
+        src="https://unpkg.com/leaflet/dist/leaflet.js">
+    </script>
 
-    <!-- UI -->
 
-    <link rel="stylesheet" href="./css/ui/button.css">
-    <link rel="stylesheet" href="./css/ui/input.css">
-    <link rel="stylesheet" href="./css/ui/textarea.css">
-    <link rel="stylesheet" href="./css/ui/select.css">
-    <link rel="stylesheet" href="./css/ui/card.css">
-    <link rel="stylesheet" href="./css/ui/avatar.css">
-	<link rel="stylesheet" href="./css/ui/user-card.css">
-	<link rel="stylesheet" href="./css/ui/active-panel.css">
+
+    <!-- =========================
+         Components CSS
+    ========================== -->
+
+
+    <link rel="stylesheet" href="/css/components/Header.css">
+
+    <link rel="stylesheet" href="/css/components/Greeting.css">
+
+    <link rel="stylesheet" href="/css/components/Logo.css">
+
+    <link rel="stylesheet" href="/css/components/ProfileButton.css">
+
+    <link rel="stylesheet" href="/css/components/Population.css">
+
+
+    <!-- Map -->
+
+    <link rel="stylesheet" href="/css/components/Map.css">
+
+    <link rel="stylesheet" href="/css/components/MapView.css">
+
+
+    <!-- Live -->
+
+    <link rel="stylesheet" href="/css/components/BottomPanel.css">
+
+    <link rel="stylesheet" href="/css/components/LiveButton.css">
+
+    <link rel="stylesheet" href="/css/components/ProfileCard.css">
+
+
+    <!-- Location -->
+
+    <link rel="stylesheet" href="/css/components/MyLocation.css">
+
 
     <!-- Screens -->
 
-    <link
-        rel="stylesheet"
-        href="./js/screens/profile/profile.css"
-    >
+    <link rel="stylesheet" href="/css/screens/Home/HomeScreen.css">
+	<link rel="stylesheet" href="css/screens/Onboarding/Onboarding.css">
+	<link rel="stylesheet" href="css/components/LiveSheet.css">
+	
+	<!-- ActivityBar -->
+	<link rel="stylesheet" href="/css/components/ActivityBar.css">
+    <link rel="stylesheet" href="/css/components/TopBar.css">
+	
+	<link rel="stylesheet" href="css/components/UserMarker.css">
 
-    <link
-        rel="stylesheet"
-        href="./js/screens/map/map.css"
-    >
 
 </head>
 
+
+
 <body>
 
-    <div id="screen"></div>
 
-    <script
-        type="module"
-        src="./js/app.js"
-    ></script>
+
+<div id="app"></div>
+
+
+
+<script 
+    type="module"
+    src="/app.js">
+</script>
+
+
 
 </body>
+
 
 </html>

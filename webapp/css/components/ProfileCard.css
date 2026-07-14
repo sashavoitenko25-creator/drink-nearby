@@ -1,0 +1,198 @@
+/**
+ * ============================================================
+ * Компанько
+ * Profile Card
+ * ============================================================
+ */
+
+
+.profile-card {
+
+
+    display: flex;
+
+
+    align-items: center;
+
+
+    gap: 14px;
+
+
+
+    padding: 16px;
+
+
+
+    border-radius: 24px;
+
+
+
+    background:
+
+        rgba(
+
+            20,
+
+            20,
+
+            30,
+
+            .75
+
+        );
+
+
+
+    backdrop-filter:
+
+        blur(20px);
+
+
+
+    color:white;
+
+
+
+    box-shadow:
+
+        0 10px 40px rgba(
+
+            0,
+
+            0,
+
+            0,
+
+            .35
+
+        );
+
+
+
+}
+
+
+
+
+
+.profile-card__avatar {
+
+
+    width:52px;
+
+
+    height:52px;
+
+
+
+    border-radius:50%;
+
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    justify-content:center;
+
+
+
+    background:
+
+        rgba(
+
+            255,
+
+            255,
+
+            255,
+
+            .15
+
+        );
+
+
+    font-size:28px;
+
+
+}
+
+
+
+
+
+.profile-card__name {
+
+
+    font-size:18px;
+
+
+    font-weight:700;
+
+
+}
+
+
+
+
+
+.profile-card__status {
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    gap:8px;
+
+
+    font-size:14px;
+
+
+    opacity:.8;
+
+
+}
+
+
+
+
+
+.profile-card__dot {
+
+
+    width:10px;
+
+
+    height:10px;
+
+
+    border-radius:50%;
+
+
+    background:#22c55e;
+
+
+}
+
+
+
+
+
+.profile-card__activity {
+
+
+    margin-top:8px;
+
+
+    font-size:14px;
+
+
+    opacity:.85;
+
+
+}

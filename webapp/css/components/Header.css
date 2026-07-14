@@ -1,0 +1,42 @@
+.header {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    right: 12px;
+
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 14px;
+
+    border-radius: 18px;
+
+    background: rgba(18,20,34,.70);
+
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+
+    border: 1px solid rgba(255,255,255,.06);
+
+    box-shadow:
+        0 10px 40px rgba(0,0,0,.35),
+        inset 0 1px rgba(255,255,255,.05);
+
+    z-index: 5000;
+}
+
+.header__left,
+.header__center,
+.header__right{
+    display:flex;
+    align-items:center;
+}
+
+.header__center{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+}

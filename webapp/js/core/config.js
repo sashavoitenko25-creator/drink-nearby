@@ -1,77 +1,202 @@
-// ============================================
-// APP CONFIG
-// ============================================
+/**
+ * ============================================================
+ * Компанько
+ * Global Configuration
+ * ------------------------------------------------------------
+ * Единый источник конфигурации приложения.
+ *
+ * ВАЖНО:
+ * - Не хранить здесь состояние приложения.
+ * - Не изменять значения во время выполнения.
+ * - Все настройки читаются только отсюда.
+ * ============================================================
+ */
 
-export const CONFIG = {
+const Config = Object.freeze({
 
-    app: {
+    /**
+     * --------------------------------------------------------
+     * Application
+     * --------------------------------------------------------
+     */
+    app: Object.freeze({
+        name: 'Компанько',
+        version: '1.0.0',
+        environment: 'development' // development | production
+    }),
 
-        name: "Drink Nearby",
+    /**
+     * --------------------------------------------------------
+     * API
+     * --------------------------------------------------------
+     */
+    api: Object.freeze({
+        baseUrl: '',
+        timeout: 10000
+    }),
 
-        version: "1.0.0",
+    /**
+     * --------------------------------------------------------
+     * Telegram Mini App
+     * --------------------------------------------------------
+     */
+    telegram: Object.freeze({
+        enabled: true
+    }),
 
-        debug: true
+    /**
+     * --------------------------------------------------------
+     * Localization
+     * --------------------------------------------------------
+     */
+    localization: Object.freeze({
 
-    },
+        defaultLanguage: 'uk',
 
-    supabase: {
+        supportedLanguages: Object.freeze([
+            'uk',
+            'ru',
+            'en'
+        ])
 
-        url: "https://YOUR_PROJECT.supabase.co",
+    }),
 
-        anonKey: "YOUR_PUBLIC_KEY"
+    /**
+     * --------------------------------------------------------
+     * Theme
+     * --------------------------------------------------------
+     */
+    theme: Object.freeze({
 
-    },
+        defaultTheme: 'dark',
 
-    map: {
+        supportedThemes: Object.freeze([
+            'dark',
+            'light'
+        ])
+
+    }),
+
+    /**
+     * --------------------------------------------------------
+     * Map
+     * --------------------------------------------------------
+     */
+    map: Object.freeze({
 
         defaultZoom: 15,
 
+        minZoom: 4,
+
         maxZoom: 20,
 
-        minZoom: 3,
+        animationDuration: 500,
 
         updateInterval: 5000,
 
-        defaultRadius: 5000
+        routeColor: '#4EA8FF',
 
-    },
+        userMarkerSize: 42,
 
-    profile: {
+        nearbyRadius: 5000
 
-        maxPhotos: 5,
+    }),
 
-        minAge: 18,
+    /**
+     * --------------------------------------------------------
+     * LIVE Mode
+     * --------------------------------------------------------
+     */
+    live: Object.freeze({
 
-        maxAge: 99
+        defaultDuration: 30,
 
-    },
+        minDuration: 15,
 
-    meeting: {
+        maxDuration: 60,
 
-        durations: [
-
+        availableDurations: Object.freeze([
             15,
-
             30,
+            45,
+            60
+        ])
 
-            60,
+    }),
 
-            120
+    /**
+     * --------------------------------------------------------
+     * Activities
+     * --------------------------------------------------------
+     */
+    activities: Object.freeze({
 
-        ]
+        drink: 'drink',
 
-    },
+        coffee: 'coffee',
 
-    languages: [
+        walk: 'walk',
 
-        "en",
+        chat: 'chat'
 
-        "de",
+    }),
 
-        "ru",
+    /**
+     * --------------------------------------------------------
+     * Population Widget
+     * --------------------------------------------------------
+     */
+    population: Object.freeze({
 
-        "uk"
+        enabled: true,
 
-    ]
+        refreshInterval: 10000
 
-};
+    }),
+
+    /**
+     * --------------------------------------------------------
+     * Events
+     * --------------------------------------------------------
+     */
+    events: Object.freeze({
+
+        enabled: true,
+
+        refreshInterval: 15000
+
+    }),
+
+    /**
+     * --------------------------------------------------------
+     * Animation
+     * --------------------------------------------------------
+     */
+    animation: Object.freeze({
+
+        duration: 300,
+
+        markerMoveDuration: 1000,
+
+        rippleDuration: 1200
+
+    }),
+
+    /**
+     * --------------------------------------------------------
+     * Storage Keys
+     * --------------------------------------------------------
+     */
+    storage: Object.freeze({
+
+        language: 'kompanko.language',
+
+        theme: 'kompanko.theme',
+
+        user: 'kompanko.user'
+
+    })
+
+});
+
+export default Config;
