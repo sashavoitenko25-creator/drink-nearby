@@ -1,28 +1,14 @@
 <!DOCTYPE html>
-
 <html lang="ru">
 
 <head>
 
-
     <meta charset="UTF-8">
 
 
-    <meta 
+    <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    >
-
-
-    <meta 
-        name="mobile-web-app-capable"
-        content="yes"
-    >
-
-
-    <meta 
-        name="apple-mobile-web-app-capable"
-        content="yes"
     >
 
 
@@ -30,18 +16,19 @@
 
 
 
-    <!-- Telegram Mini App -->
+    <!-- Telegram WebApp -->
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
 
 
-    <!-- Leaflet -->
+    <!-- Leaflet Map -->
 
     <link
         rel="stylesheet"
         href="https://unpkg.com/leaflet/dist/leaflet.css"
     >
+
 
 
     <script
@@ -50,72 +37,114 @@
 
 
 
+
+
     <!-- =========================
-         Components CSS
+         GLOBAL CSS
     ========================== -->
 
 
-    <link rel="stylesheet" href="/css/components/Header.css">
+    <link rel="stylesheet" href="./css/reset.css">
 
-    <link rel="stylesheet" href="/css/components/Greeting.css">
-
-    <link rel="stylesheet" href="/css/components/Logo.css">
-
-    <link rel="stylesheet" href="/css/components/ProfileButton.css">
-
-    <link rel="stylesheet" href="/css/components/Population.css">
+    <link rel="stylesheet" href="./css/style.css">
 
 
-    <!-- Map -->
-
-    <link rel="stylesheet" href="/css/components/Map.css">
-
-    <link rel="stylesheet" href="/css/components/MapView.css">
 
 
-    <!-- Live -->
 
-    <link rel="stylesheet" href="/css/components/BottomPanel.css">
-
-    <link rel="stylesheet" href="/css/components/LiveButton.css">
-
-    <link rel="stylesheet" href="/css/components/ProfileCard.css">
+    <!-- =========================
+         COMPONENTS CSS
+    ========================== -->
 
 
-    <!-- Location -->
+    <link rel="stylesheet" href="./css/components/Header.css">
 
-    <link rel="stylesheet" href="/css/components/MyLocation.css">
+    <link rel="stylesheet" href="./css/components/Greeting.css">
+
+    <link rel="stylesheet" href="./css/components/Logo.css">
+
+    <link rel="stylesheet" href="./css/components/Population.css">
+
+    <link rel="stylesheet" href="./css/components/ProfileButton.css">
+
+    <link rel="stylesheet" href="./css/components/OnlineStatus.css">
+
+    <link rel="stylesheet" href="./css/components/ActivityBar.css">
+
+    <link rel="stylesheet" href="./css/components/TopBar.css">
+
+    <link rel="stylesheet" href="./css/components/Map.css">
+
+    <link rel="stylesheet" href="./css/components/MapView.css">
+
+    <link rel="stylesheet" href="./css/components/MyLocation.css">
+
+    <link rel="stylesheet" href="./css/components/UserMarker.css">
+
+    <link rel="stylesheet" href="./css/components/LiveButton.css">
+
+    <link rel="stylesheet" href="./css/components/ProfileCard.css">
+
+    <link rel="stylesheet" href="./css/components/BottomPanel.css">
+
+    <link rel="stylesheet" href="./css/components/LiveSheet.css">
 
 
-    <!-- Screens -->
 
-    <link rel="stylesheet" href="/css/screens/Home/HomeScreen.css">
-	<link rel="stylesheet" href="css/screens/Onboarding/Onboarding.css">
-	<link rel="stylesheet" href="css/components/LiveSheet.css">
-	
-	<!-- ActivityBar -->
-	<link rel="stylesheet" href="/css/components/ActivityBar.css">
-    <link rel="stylesheet" href="/css/components/TopBar.css">
-	
-	<link rel="stylesheet" href="css/components/UserMarker.css">
+
+
+    <!-- =========================
+         SCREENS
+    ========================== -->
+
+
+    <link rel="stylesheet" href="./css/screens/Home/HomeScreen.css">
+
+    <link rel="stylesheet" href="./css/screens/Onboarding/Onboarding.css">
+
 
 
 </head>
 
 
 
-<body>
 
+<body>
 
 
 <div id="app"></div>
 
 
 
-<script 
-    type="module"
-    src="/app.js">
+
+
+<!-- Telegram theme -->
+
+<script>
+
+    window.Telegram
+        ?.WebApp
+        ?.ready();
+
+
+    window.Telegram
+        ?.WebApp
+        ?.expand();
+
+
 </script>
+
+
+
+
+
+<!-- Application -->
+
+<script
+    type="module"
+    src="./app.js">
+</script>
+
 
 
 

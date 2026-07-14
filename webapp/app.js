@@ -26,6 +26,8 @@ import LanguageService from './js/services/LanguageService.js';
 
 import HomeController from './js/screens/Home/HomeController.js';
 
+import TelegramService from './js/services/TelegramService.js';
+
 class App {
 
     constructor() {
@@ -85,7 +87,40 @@ class App {
      */
     async initializeServices() {
 
+
         LanguageService.init();
+
+
+        TelegramService.init();
+
+
+        const user = TelegramService.getUser();
+
+
+
+        if(user){
+
+
+            Store.patch(
+                'profile',
+                {
+
+                    telegramId:user.id,
+
+                    name:
+                        user.first_name || '',
+
+
+                    avatar:
+                        user.photo_url || null
+
+                }
+
+            );
+
+
+        }
+
 
     }
 
