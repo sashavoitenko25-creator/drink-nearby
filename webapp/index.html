@@ -6,8 +6,8 @@
     <meta charset="UTF-8">
 
 
-    <meta
-        name="viewport"
+    <meta 
+        name="viewport" 
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     >
 
@@ -16,19 +16,18 @@
 
 
 
-    <!-- Telegram WebApp -->
+    <!-- Telegram Mini App -->
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
 
 
-    <!-- Leaflet Map -->
+    <!-- Leaflet -->
 
     <link
         rel="stylesheet"
         href="https://unpkg.com/leaflet/dist/leaflet.css"
     >
-
 
 
     <script
@@ -39,10 +38,7 @@
 
 
 
-    <!-- =========================
-         GLOBAL CSS
-    ========================== -->
-
+    <!-- GLOBAL -->
 
     <link rel="stylesheet" href="./css/reset.css">
 
@@ -52,10 +48,7 @@
 
 
 
-    <!-- =========================
-         COMPONENTS CSS
-    ========================== -->
-
+    <!-- COMPONENTS -->
 
     <link rel="stylesheet" href="./css/components/Header.css">
 
@@ -93,10 +86,7 @@
 
 
 
-    <!-- =========================
-         SCREENS
-    ========================== -->
-
+    <!-- SCREENS -->
 
     <link rel="stylesheet" href="./css/screens/Home/HomeScreen.css">
 
@@ -118,18 +108,17 @@
 
 
 
-<!-- Telegram theme -->
-
 <script>
 
-    window.Telegram
-        ?.WebApp
-        ?.ready();
+    // Telegram initialization
 
+    if(window.Telegram && window.Telegram.WebApp){
 
-    window.Telegram
-        ?.WebApp
-        ?.expand();
+        Telegram.WebApp.ready();
+
+        Telegram.WebApp.expand();
+
+    }
 
 
 </script>
@@ -137,14 +126,11 @@
 
 
 
-
-<!-- Application -->
 
 <script
     type="module"
     src="./app.js">
 </script>
-
 
 
 
