@@ -1,111 +1,127 @@
 /**
  * ============================================================
  * Компанько
- * Application Entry Point
- * ------------------------------------------------------------
- * Главная точка входа приложения.
- *
- * Ответственность:
- * - запуск сервисов
- * - подготовка приложения
- * - запуск первого экрана
- * - уведомление о готовности
- *
- * Здесь НЕ должно быть:
- * - логики экранов
- * - логики компонентов
- * - бизнес-логики
+ * Application Entry
  * ============================================================
  */
 
-import Config from './js/core/Config.js';
+
 import Store from './js/core/Store.js';
-import EventBus, { Events } from './js/core/EventBus.js';
+
+
+import EventBus from './js/core/EventBus.js';
+
 
 import LanguageService from './js/services/LanguageService.js';
 
-import HomeController from './js/screens/Home/HomeController.js';
 
 import TelegramService from './js/services/TelegramService.js';
 
+
+import HomeController from './js/screens/Home/HomeController.js';
+
+
+
+
+
+
 class App {
 
-    constructor() {
 
-        this.container = null;
+
+    constructor(){
+
 
         this.currentScreen = null;
 
-    }
 
-    async init() {
+        this.container = null;
 
-        try {
-
-            console.info(
-                `%c${Config.app.name} v${Config.app.version}`,
-                'color:#4EA8FF;font-weight:bold;'
-            );
-
-            this.container = document.getElementById('app');
-
-            if (!this.container) {
-
-                throw new Error('#app container not found.');
-
-            }
-
-            await this.initializeServices();
-
-            this.launch();
-
-            Store.patch('app', {
-                initialized: true
-            });
-
-            EventBus.emit(Events.APP_READY);
-
-            console.info('Application successfully started.');
-
-        }
-
-        catch (error) {
-
-            console.error(error);
-
-            EventBus.emit(
-                Events.APP_ERROR,
-                error
-            );
-
-        }
 
     }
 
-    /**
-     * Инициализация сервисов
-     */
-    async initializeServices() {
+
+
+
+
+
+
+    async init(){
+
+
+        console.log(
+            '[App] start'
+        );
+
+
+
+        this.container =
+            document.getElementById('app');
+
+
+
+        if(!this.container){
+
+
+            console.error(
+                '[App] #app not found'
+            );
+
+
+            return;
+
+        }
+
+
+
+
+
+        await this.initializeServices();
+
+
+
+        this.openHome();
+
+
+
+    }
+
+
+
+
+
+
+
+    async initializeServices(){
+
 
 
         LanguageService.init();
 
 
+
         TelegramService.init();
 
 
-        const user = TelegramService.getUser();
+
+        const user =
+            TelegramService.getUser();
+
 
 
 
         if(user){
 
 
-            Store.patch(
+
+            Store.set(
+
                 'profile',
+
                 {
 
                     telegramId:user.id,
+
 
                     name:
                         user.first_name || '',
@@ -119,52 +135,100 @@ class App {
             );
 
 
+
+            console.log(
+
+                '[App] Telegram user:',
+
+                user
+
+            );
+
+
         }
 
 
-    }
-
-    /**
-     * Запуск приложения
-     */
-    launch() {
-
-        this.openHome();
 
     }
 
-    /**
-     * Главный экран
-     */
-    openHome() {
+
+
+
+
+
+
+
+    openHome(){
+
 
         this.destroyCurrentScreen();
 
-        this.currentScreen = new HomeController();
 
-        this.currentScreen.init(this.container);
+
+        this.currentScreen =
+            new HomeController();
+
+
+
+        this.currentScreen.init(
+
+            this.container
+
+        );
+
 
     }
 
-    /**
-     * Очистка текущего экрана
-     */
-    destroyCurrentScreen() {
 
-        this.currentScreen?.destroy();
+
+
+
+
+
+
+    destroyCurrentScreen(){
+
+
+
+        if(this.currentScreen){
+
+
+            this.currentScreen.destroy();
+
+
+        }
+
+
 
         this.currentScreen = null;
 
+
+
     }
+
+
 
 }
 
+
+
+
+
+
 const app = new App();
 
-window.addEventListener('DOMContentLoaded', () => {
 
-    app.init();
 
-});
+window.addEventListener(
 
-export default app;
+    'load',
+
+    ()=>{
+
+
+        app.init();
+
+
+    }
+
+);
