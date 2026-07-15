@@ -4,24 +4,23 @@
 
 <head>
 
-
 <meta charset="UTF-8">
 
-
-<meta 
-name="viewport"
-content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
-/>
-
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 
 <title>Компанько</title>
 
 
 
+<!-- Telegram -->
+
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
 
+
+<!-- Leaflet -->
 
 <link 
 rel="stylesheet"
@@ -29,17 +28,19 @@ href="https://unpkg.com/leaflet/dist/leaflet.css"
 />
 
 
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script
+src="https://unpkg.com/leaflet/dist/leaflet.js">
+</script>
 
 
 
+<!-- BASE -->
+
+<link rel="stylesheet" href="./css/base/reset.css">
 
 
-<link rel="stylesheet" href="./css/reset.css">
 
-<link rel="stylesheet" href="./css/style.css">
-
-
+<!-- COMPONENTS -->
 
 <link rel="stylesheet" href="./css/components/Header.css">
 
@@ -50,12 +51,6 @@ href="https://unpkg.com/leaflet/dist/leaflet.css"
 <link rel="stylesheet" href="./css/components/Population.css">
 
 <link rel="stylesheet" href="./css/components/ProfileButton.css">
-
-<link rel="stylesheet" href="./css/components/OnlineStatus.css">
-
-<link rel="stylesheet" href="./css/components/ActivityBar.css">
-
-<link rel="stylesheet" href="./css/components/TopBar.css">
 
 <link rel="stylesheet" href="./css/components/Map.css">
 
@@ -73,6 +68,14 @@ href="https://unpkg.com/leaflet/dist/leaflet.css"
 
 <link rel="stylesheet" href="./css/components/LiveSheet.css">
 
+<link rel="stylesheet" href="./css/components/ActivityBar.css">
+
+<link rel="stylesheet" href="./css/components/TopBar.css">
+
+
+
+
+<!-- SCREENS -->
 
 <link rel="stylesheet" href="./css/screens/Home/HomeScreen.css">
 
@@ -83,12 +86,24 @@ href="https://unpkg.com/leaflet/dist/leaflet.css"
 </head>
 
 
-
 <body>
 
 
-
 <div id="app"></div>
+
+
+
+<script>
+
+if(window.Telegram && window.Telegram.WebApp){
+
+    Telegram.WebApp.ready();
+
+    Telegram.WebApp.expand();
+
+}
+
+</script>
 
 
 
